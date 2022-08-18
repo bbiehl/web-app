@@ -7,13 +7,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavigationModule } from './navigation/navigation.module';
 
 @NgModule({
     declarations: [AppComponent],
     imports: [
         AppRoutingModule,
-        BrowserAnimationsModule,
         BrowserModule,
+        BrowserAnimationsModule,
+        NavigationModule,
         EffectsModule.forRoot([]),
         // Must import StoreModule before StoreDevtoolsModule. Otherwise Redux DevTools won't find store.
         StoreModule.forRoot({}, {}),

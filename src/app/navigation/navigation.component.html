@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="18px">
+        <button mat-flat-button *ngFor="let link of links">
+            <div routerLink="{{ link }}">{{ link | uppercase }}</div>
+        </button>
+    </div>
+</mat-toolbar>
+<router-outlet></router-outlet>
