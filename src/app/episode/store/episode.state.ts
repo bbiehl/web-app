@@ -1,18 +1,20 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Episode } from '../types/episode.model';
 
-export function selectEpisodeId(a: Episode): string {
-    return a.id;
-}
+// export function selectEpisodeId(a: Episode): string {
+//     return a.id;
+// }
 
-export function sortByDate(a: Episode, b: Episode): number {
-    return a.date.toLocaleDateString().localeCompare(b.date.toLocaleDateString());
-}
+// export function sortByDate(a: Episode, b: Episode): number {
+//     return a.date.toLocaleDateString().localeCompare(b.date.toLocaleDateString());
+// }
 
-export const episodeAdapter: EntityAdapter<Episode> = createEntityAdapter<Episode>({
-    selectId: selectEpisodeId,
-    sortComparer: sortByDate,
-});
+// export const episodeAdapter: EntityAdapter<Episode> = createEntityAdapter<Episode>({
+//     selectId: selectEpisodeId,
+//     sortComparer: sortByDate,
+// });
+
+export const episodeAdapter = createEntityAdapter<Episode>();
 
 export interface EpisodeState extends EntityState<Episode> {
     isLoading: boolean;
