@@ -10,7 +10,7 @@ export enum EpisodeActionTypes {
     VIEW_LIST = '[episode] view list',
 }
 
-export const create = createAction(EpisodeActionTypes.CREATE, props<{ payload: Episode }>());
+export const create = createAction(EpisodeActionTypes.CREATE, props<{ payload: Partial<Episode> }>());
 export const update = createAction(EpisodeActionTypes.UPDATE, props<{ payload: Episode }>());
 export const deleteSingle = createAction(EpisodeActionTypes.DELETE_SINGLE, props<{ id: string }>());
 export const deleteMultiple = createAction(EpisodeActionTypes.DELETE_MULTI, props<{ ids: string[] }>());
