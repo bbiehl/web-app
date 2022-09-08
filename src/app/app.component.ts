@@ -7,5 +7,5 @@ import { Categories } from './shared/types/categories.enum';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    navLinks = [Categories.EPISODES, Categories.MUSEUM, Categories.QA];
+    navLinks = [Categories.EPISODES, Categories.MUSEUM];
 }
