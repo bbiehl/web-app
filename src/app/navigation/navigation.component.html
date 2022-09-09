@@ -1,8 +1,19 @@
-<mat-toolbar color="primary">
-    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="18px">
-        <button mat-flat-button *ngFor="let link of links">
-            <div routerLink="{{ link }}">{{ link | uppercase }}</div>
-        </button>
+<div class="container-fluid">
+    <div class="container">
+        <mat-toolbar color="primary">
+            <span>Logo</span>
+            <span style="flex: 1 1 auto"></span>
+            <button mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <!-- <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="18px">
+                <button mat-flat-button *ngFor="let link of links">
+                    <div routerLink="{{ link }}">{{ link | uppercase }}</div>
+                </button>
+            </div> -->
+        </mat-toolbar>
     </div>
-</mat-toolbar>
+</div>
+
+
 <router-outlet></router-outlet>
