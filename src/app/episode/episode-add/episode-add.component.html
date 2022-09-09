@@ -1,1 +1,21 @@
-<p>episode-add works!</p>
+<div fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-between">
+        <div id="form-container" fxFlex="30">
+            <h3>Create New Episode</h3>
+            <app-episode-form></app-episode-form>
+        </div>
+        <div id="episode-preview-container" fxFlex="70">
+            <h3>Episode Preview</h3>
+            <app-episode-view></app-episode-view>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div id="episode-add-actions" fxFlex fxLayout="row" fxLayoutAlign="center" fxLayoutGap="10px">
+        <button mat-fab color="primary" mat-dialog-close>
+            <mat-icon aria-hidden="false" aria-label="close icon" fontIcon="close"></mat-icon>
+        </button>
+        <button mat-fab color="primary" mat-dialog-close cdkFocusInitial [disabled]=false>
+            <mat-icon aria-hidden="false" aria-label="save icon" fontIcon="save"></mat-icon>
+        </button>
+    </div>
+</div>

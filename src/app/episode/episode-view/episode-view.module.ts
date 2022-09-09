@@ -1,15 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { EpisodeViewComponent } from './episode-view.component';
 
-
-
 @NgModule({
-  declarations: [
-    EpisodeViewComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+    declarations: [EpisodeViewComponent],
+    exports: [EpisodeViewComponent],
+    imports: [CommonModule],
 })
-export class EpisodeViewModule { }
+export class EpisodeViewModule {}

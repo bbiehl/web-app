@@ -1,11 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EpisodeComponent } from './episode.component';
+import { NgModule } from '@angular/core';
+import { EpisodeListModule } from './episode-list/episode-list.module';
 
 @NgModule({
-    declarations: [
-    EpisodeComponent
-  ],
-    imports: [CommonModule],
+    declarations: [],
+    imports: [CommonModule, EpisodeListModule],
 })
 export class EpisodeModule {}

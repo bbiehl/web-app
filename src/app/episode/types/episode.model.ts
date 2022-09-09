@@ -1,9 +1,18 @@
-import { ImdbMovie } from './imdbMovie.model';
 
 export interface Episode {
-    date: Date;
-    description: string;
     id: string;
-    title: string;
-    imdbProperties: ImdbMovie;
+    properties: {
+        date: Date;
+        description: string;
+        genres: string[];
+        poster: string;
+        links: {
+            iHeartRadio: string;
+            iTunes: string;
+            podBean: string;
+            youTube: string;
+        };
+        title: string;
+        year: number;
+    };
 }
