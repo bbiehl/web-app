@@ -6,7 +6,7 @@ import { Episode } from '../types/episode.model';
 // }
 
 // export function sortByDate(a: Episode, b: Episode): number {
-//     return a.date.toLocaleDateString().localeCompare(b.date.toLocaleDateString());
+//     return a.properties.date.toLocaleDateString().localeCompare(b.properties.date.toLocaleDateString());
 // }
 
 // export const episodeAdapter: EntityAdapter<Episode> = createEntityAdapter<Episode>({
