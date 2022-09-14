@@ -4,7 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { EpisodeStoreModule } from '../episode/store/episode-store.module';
+import { EpisodeStoreModule } from './episode/store/episode-store.module';
 
 @NgModule({
     declarations: [],
@@ -17,4 +17,4 @@ import { EpisodeStoreModule } from '../episode/store/episode-store.module';
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     ],
 })
-export class RootStoreModule {}
+export class AppStoreModule {}
