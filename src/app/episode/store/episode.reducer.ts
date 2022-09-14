@@ -1,11 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { EpisodeActionTypes } from './episode.actions';
-import { EpisodeState, initialEpisodeState } from './episode.state';
 import * as EpisodeActions from './episode.actions';
-
-// export function episodeFeatureReducer(state = initialEpisodeState): EpisodeState {
-//     return state;
-// }
+import { EpisodeState, initialEpisodeState } from './episode.state';
 
 export const episodeFeatureReducer = createReducer<EpisodeState>(
     initialEpisodeState,
@@ -35,24 +30,3 @@ export const episodeFeatureReducer = createReducer<EpisodeState>(
         })
     )
 );
-
-// export const episodeReducer = createReducer<EpisodeFeatureState>(
-//     initialEpisodeFeatureState,
-
-//     on(
-//         EpisodeActions.loadImdbMoviesFail,
-//         (state): EpisodeFeatureState => ({
-//             ...state,
-//             imdbMoviesloading: false,
-//             imdbMovieserror: true,
-//         })
-//     ),
-//     on(
-//         EpisodeActions.loadImdbMoviesSuccess,
-//         (state, action): EpisodeFeatureState => ({
-//             ...state,
-//             imdbMovies: action.imdbMovies,
-//             imdbMoviesloading: false,
-//             imdbMovieserror: false,
-//         })
-//     ),

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, concatMap, EMPTY, map, mergeMap } from 'rxjs';
+import { catchError, EMPTY, map, mergeMap } from 'rxjs';
 import { EpisodeService } from '../services/episode.service';
 import { EpisodeActionTypes } from './episode.actions';
 
