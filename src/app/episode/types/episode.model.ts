@@ -1,10 +1,8 @@
-
 export interface Episode {
     id: string;
     properties: {
         date: Date;
         description: string;
-        genres: string[];
         poster: string;
         links: {
             iHeartRadio: string;
@@ -13,6 +11,7 @@ export interface Episode {
             youTube: string;
         };
         title: string;
-        year: number;
+        visible: boolean;
+        year: string;
     };
 }

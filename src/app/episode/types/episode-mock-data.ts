@@ -7,7 +7,6 @@ export const EpisodeMockData: Episode[] = [
             date: new Date('2022-06-14T00:00:00.000Z'),
             description:
                 "After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to fly it.",
-            genres: ['Military', 'Action', 'Sequel'],
             poster: 'https://www.imdb.com/title/tt1745960/mediaviewer/rm3294367489/?ref_=tt_ov_i',
             links: {
                 iHeartRadio: '',
@@ -16,7 +15,8 @@ export const EpisodeMockData: Episode[] = [
                 youTube: '',
             },
             title: 'Top Gun: Maverick',
-            year: 2022,
+            visible: true,
+            year: '2022',
         },
     },
     {
@@ -25,7 +25,6 @@ export const EpisodeMockData: Episode[] = [
             date: new Date('2022-07-19T00:00:00.000Z'),
             description:
                 'An immortal Scottish swordsman must confront the last of his immortal opponent, a murderously brutal barbarian who lusts for the fabled "Prize".',
-            genres: ['Swords', 'Action', 'Fantasy', 'Adventure'],
             poster: 'https://www.imdb.com/title/tt0091203/mediaviewer/rm1279863552/?ref_=tt_ov_i',
             links: {
                 iHeartRadio: '',
@@ -34,7 +33,8 @@ export const EpisodeMockData: Episode[] = [
                 youTube: '',
             },
             title: 'Highlander',
-            year: 1986,
+            visible: true,
+            year: '1986',
         },
     },
     {
@@ -42,7 +42,6 @@ export const EpisodeMockData: Episode[] = [
         properties: {
             date: new Date('2022-08-03T00:00:00.000Z'),
             description: 'Analog Jones tries their best to understand this.',
-            genres: ['Swords', 'Action', 'Fantasy', 'Adventure', 'Sequel', 'SciFi'],
             poster: 'https://www.imdb.com/title/tt0102034/mediaviewer/rm426385664/?ref_=tt_ov_i',
             links: {
                 iHeartRadio: '',
@@ -51,7 +50,8 @@ export const EpisodeMockData: Episode[] = [
                 youTube: '',
             },
             title: 'Highlander 2: The Quickening',
-            year: 1991,
+            visible: true,
+            year: '1991',
         },
     },
 ];

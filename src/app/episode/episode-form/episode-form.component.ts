@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { EpisodeForm } from '../types/episode-form.model';
 import { Episode } from '../types/episode.model';
@@ -12,15 +12,20 @@ import { Episode } from '../types/episode.model';
 export class EpisodeFormComponent implements OnInit {
     @Input() data!: Observable<Episode> | null;
     episodeForm: FormGroup<EpisodeForm>;
+    yearPattern = /\d{3}/;
 
-    constructor() {
-        this.episodeForm = new FormGroup<EpisodeForm>({
-            date: new FormControl(new Date(), Validators.required),
-            description: new FormControl('', Validators.required),
-            image: new FormControl('', Validators.required),
-            link: new FormControl('', Validators.required),
-            title: new FormControl('', Validators.required),
-            visible: new FormControl(false, {nonNullable: true}),
+    constructor(private fb: FormBuilder) {
+        this.episodeForm = this.fb.group<EpisodeForm>({
+            date: this.fb.nonNullable.control(new Date(), Validators.required),
+            description: this.fb.nonNullable.control('', Validators.required),
+            iHeartRadioLink: this.fb.nonNullable.control('', Validators.required),
+            iTunesLink: this.fb.nonNullable.control('', Validators.required),
+            podBeanLink: this.fb.nonNullable.control('', Validators.required),
+            poster: this.fb.nonNullable.control('', Validators.required),
+            title: this.fb.nonNullable.control('', Validators.required),
+            visible: this.fb.nonNullable.control(false, Validators.required),
+            year: this.fb.nonNullable.control('', [Validators.required, Validators.pattern(this.yearPattern)]),
+            youTubeLink: this.fb.nonNullable.control('', Validators.required),
         });
     }
 
