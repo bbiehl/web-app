@@ -4,3 +4,9 @@
         <mat-icon aria-hidden="false" aria-label="add icon" fontIcon="add"></mat-icon>
     </button>
 </div>
+
+<div *ngFor="let episode of episodes" fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+    <div>
+        <div>{{episode.properties.title}}</div>
+    </div>
+</div>
