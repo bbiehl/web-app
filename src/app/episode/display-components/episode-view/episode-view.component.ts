@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Episode } from '../types/episode.model';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-episode-view',
@@ -8,8 +6,6 @@ import { Episode } from '../types/episode.model';
     styleUrls: ['./episode-view.component.scss'],
 })
 export class EpisodeViewComponent implements OnInit {
-    @Input() data!: Observable<Episode> | null;
-
     constructor() {}
 
     ngOnInit(): void {

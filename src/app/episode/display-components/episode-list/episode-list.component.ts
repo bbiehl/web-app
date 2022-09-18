@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { EpisodeAddComponent } from '../episode-add/episode-add.component';
+import { EpisodeAddContainerComponent } from '../../container-components/episode-add-container/episode-add-container.component';
 
 @Component({
     selector: 'app-episode-list',
@@ -15,7 +15,7 @@ export class EpisodeListComponent implements OnInit {
     }
 
     public openAddEpisodeDialog(): void {
-        const dialogRef = this.dialog.open(EpisodeAddComponent, {
+        const dialogRef = this.dialog.open(EpisodeAddContainerComponent, {
             width: '90%',
         });
     }

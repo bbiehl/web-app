@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { EpisodeForm } from '../types/episode-form.model';
-import { Episode } from '../types/episode.model';
+import { EpisodeForm } from '../../types/episode-form.model';
+import { Episode } from '../../types/episode.model';
 
 @Component({
     selector: 'app-episode-form',

@@ -11,12 +11,13 @@ import { Episode } from '../episode/types/episode.model';
     styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-    episodes$: Observable<Episode[]> = this.store.select(selectEpisodes);
+    episodes$: Observable<Episode[]> = this.store.select(selectEpisodes); //this is wrong
 
     constructor(private store: Store) {}
 
     ngOnInit(): void {
         this.episodes$.subscribe((episodes) => console.log(episodes));
         this.store.dispatch(loadEpisodes());
+        console.log(this.store);
     }
 }
