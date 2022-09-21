@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
 import { EpisodeAddContainerComponent } from '../../container-components/episode-add-container/episode-add-container.component';
 import { Episode } from '../../types/episode.model';
 
@@ -9,15 +8,13 @@ import { Episode } from '../../types/episode.model';
     templateUrl: './episode-list.component.html',
     styleUrls: ['./episode-list.component.scss'],
 })
-export class EpisodeListComponent implements OnInit {
+export class EpisodeListComponent {
     @Input() episodes: Episode[] | null;
+    @Input() loading: boolean;
 
     constructor(public dialog: MatDialog) {
-        this.episodes = [];
-    }
-
-    ngOnInit(): void {
-        console.log('episode-list');
+        this.episodes = null;
+        this.loading = true;
     }
 
     public openAddEpisodeDialog(): void {

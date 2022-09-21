@@ -6,7 +6,7 @@ import { getEpisodes } from '../episode/store/episode.actions';
 import { selectAllEpisodes } from '../episode/store/episode.selector';
 import { Episode } from '../episode/types/episode.model';
 
-UntilDestroy();
+@UntilDestroy()
 @Component({
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',

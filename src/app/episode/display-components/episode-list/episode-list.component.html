@@ -1,12 +1,26 @@
-<p>episode-list works!</p>
-<div fxFlex fxLayout="row" fxLayoutAlign="center" style="padding-top: 10px">
-    <button mat-fab color="primary" (click)="openAddEpisodeDialog()">
-        <mat-icon aria-hidden="false" aria-label="add icon" fontIcon="add"></mat-icon>
-    </button>
+<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
+    <div *ngIf="loading">
+        <mat-spinner class="align-center" color="primary"></mat-spinner>
+    </div>
+    <div *ngIf="!loading" fxLayout="column" fxLayoutGap="20px">
+        <div fxFlex fxLayout="row" fxLayoutAlign="center">
+            <button mat-fab color="primary" (click)="openAddEpisodeDialog()">
+                <mat-icon aria-hidden="false" aria-label="add icon" fontIcon="add"></mat-icon>
+            </button>
+        </div>
+        <div *ngFor="let episode of episodes" fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+            <div>
+                <div>{{ episode.properties.title }}</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 </div>
 
-<div *ngFor="let episode of episodes" fxFlex fxLayout="row" fxLayoutAlign="space-around center">
-    <div>
-        <div>{{episode.properties.title}}</div>
-    </div>
-</div>
+
+
+
+

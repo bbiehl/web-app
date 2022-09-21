@@ -11,7 +11,11 @@ export interface EpisodeState extends EntityState<Episode> {
     isLoading: boolean;
 }
 
-export const episodeAdapter: EntityAdapter<Episode> = createEntityAdapter<Episode>();
+export function sortByDate(a: Episode, b: Episode): number {
+    return b.properties.date.toUTCString().localeCompare(a.properties.date.toUTCString());
+}
+
+export const episodeAdapter: EntityAdapter<Episode> = createEntityAdapter<Episode>({ sortComparer: sortByDate });
 
 export const initialEpisodeState: EpisodeState = episodeAdapter.getInitialState({
     error: false,
@@ -46,7 +50,7 @@ export const episodeReducer = createReducer<EpisodeState>(
             error: false,
             isLoaded: true,
             isLoading: false,
-        }
+        };
         return episodeAdapter.setAll(episodes, episodeState);
     }),
     on(EpisodeActions.mapEpisodes, (episodeState, { entityMap }) => {

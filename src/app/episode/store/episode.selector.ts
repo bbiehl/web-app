@@ -13,4 +13,3 @@ export const selectEpisodeState = createFeatureSelector<fromEpisodeReducer.Episo
 
 export const selectAllEpisodes = createSelector(selectEpisodeState, fromEpisodeReducer.selectAllEpisodes);
 export const selectEpisodeEntities = createSelector(selectEpisodeState, fromEpisodeReducer.selectEpisodeEntities);
-// export const selectEpisodeLoaded = createSelector(selectEpisodeState)

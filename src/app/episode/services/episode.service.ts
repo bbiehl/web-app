@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { delay, Observable, of } from 'rxjs';
 import { EpisodeMockData } from '../types/episode-mock-data';
 import { Episode } from '../types/episode.model';
 
@@ -10,6 +10,6 @@ export class EpisodeService {
     constructor() {}
 
     getEpisodes(): Observable<Episode[]> {
-        return of(EpisodeMockData);
+        return of(EpisodeMockData).pipe(delay(2000));
     }
 }
