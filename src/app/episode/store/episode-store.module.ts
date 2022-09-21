@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { EpisodeEffects } from './episode.effects';
-import { episodeFeatureReducer } from './episode.reducer';
+import { EpisodeFeatureKey, episodeReducer } from './episode.reducer';
 
 @NgModule({
     declarations: [],
     imports: [
         CommonModule,
         EffectsModule.forFeature([EpisodeEffects]),
-        StoreModule.forFeature('episodes', episodeFeatureReducer),
+        StoreModule.forFeature(EpisodeFeatureKey, episodeReducer),
     ],
 })
 export class EpisodeStoreModule {}

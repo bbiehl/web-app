@@ -1,4 +1,16 @@
-import { createFeatureSelector } from '@ngrx/store';
-import { Episode } from '../types/episode.model';
+import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
+import * as fromEpisodeReducer from './episode.reducer';
 
-export const selectEpisodes = createFeatureSelector<Episode[]>('episodes');
+export interface EpisodeState {
+    episodes: fromEpisodeReducer.EpisodeState;
+}
+
+export const episodeReducers: ActionReducerMap<EpisodeState> = {
+    episodes: fromEpisodeReducer.episodeReducer,
+};
+
+export const selectEpisodeState = createFeatureSelector<fromEpisodeReducer.EpisodeState>(fromEpisodeReducer.EpisodeFeatureKey);
+
+export const selectAllEpisodes = createSelector(selectEpisodeState, fromEpisodeReducer.selectAllEpisodes);
+export const selectEpisodeEntities = createSelector(selectEpisodeState, fromEpisodeReducer.selectEpisodeEntities);
+// export const selectEpisodeLoaded = createSelector(selectEpisodeState)

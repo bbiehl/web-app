@@ -10,10 +10,10 @@ export class EpisodeEffects {
 
     loadEpisodes$ = createEffect(() => {
         return this.actions$.pipe(
-            ofType(EpisodeActionTypes.LOAD_EPISODES),
+            ofType(EpisodeActionTypes.GET_EPISODES),
             mergeMap(() =>
                 this.episodeService.getEpisodes().pipe(
-                    map((episodes) => ({ type: EpisodeActionTypes.GET_EPISODES_SUCCESS, payload: episodes })),
+                    map((episodes) => ({ type: EpisodeActionTypes.LOAD_EPISODES, episodes: episodes })),
                     catchError(() => EMPTY)
                 )
             )
