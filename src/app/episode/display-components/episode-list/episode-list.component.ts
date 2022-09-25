@@ -9,13 +9,10 @@ import { Episode } from '../../types/episode.model';
     styleUrls: ['./episode-list.component.scss'],
 })
 export class EpisodeListComponent {
-    @Input() episodes: Episode[] | null;
-    @Input() loading: boolean;
+    @Input() episodes: Episode[] | null = [];
+    @Input() loading: boolean | null = true;
 
-    constructor(public dialog: MatDialog) {
-        this.episodes = null;
-        this.loading = true;
-    }
+    constructor(public dialog: MatDialog) {}
 
     public openAddEpisodeDialog(): void {
         const dialogRef = this.dialog.open(EpisodeAddContainerComponent, {

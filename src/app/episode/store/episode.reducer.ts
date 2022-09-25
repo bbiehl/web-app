@@ -45,8 +45,7 @@ export const episodeReducer = createReducer<EpisodeState>(
     ),
     on(EpisodeActions.loadEpisodes, (episodeState: EpisodeState, { episodes }) => {
         episodeState = {
-            ids: [],
-            entities: {},
+            ...episodeState,
             error: false,
             isLoaded: true,
             isLoading: false,

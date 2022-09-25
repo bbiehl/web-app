@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { EpisodeStoreModule } from './episode/store/episode-store.module';
+import { EpisodeFeatureKey, episodeReducer } from './episode/store/episode.reducer';
 
 @NgModule({
     declarations: [],

@@ -6,7 +6,7 @@ import { EpisodeListContainerComponent } from './container-components/episode-li
 const routes: Routes = [{ path: Categories.EPISODES, component: EpisodeListContainerComponent, title: 'All Episodes' }];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
 })
 export class EpisodeRoutingModule {}

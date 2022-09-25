@@ -1,6 +1,7 @@
 export interface Episode {
     id: string;
     properties: {
+        author: string;
         date: Date;
         description: string;
         poster: string;
