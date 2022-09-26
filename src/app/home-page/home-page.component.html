@@ -4,7 +4,7 @@
 </div>
 
 <div class="container">
-    <app-episode-overview></app-episode-overview>
+    <app-episode-list [episodes]="(episodes$ | async) | slice: 0:1" [loading]="episodesAreLoading$ | async"></app-episode-list>
 </div>
 
 <div class="container">
@@ -14,5 +14,4 @@
             EPISODES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </button>
     </div>
-
 </div>
