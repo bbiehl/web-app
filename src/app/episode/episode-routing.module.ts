@@ -5,7 +5,7 @@ import { EpisodePageContainerComponent } from './container-components/episode-pa
 
 const routes: Routes = [
     { path: Categories.EPISODES, component: EpisodePageContainerComponent, title: 'All Episodes' },
-    { path: '**', redirectTo: Categories.EPISODES, pathMatch: 'full' },
+    { path: '**', redirectTo: Categories.EPISODES },
 ];
 
 @NgModule({
