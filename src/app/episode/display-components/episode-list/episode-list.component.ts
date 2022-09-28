@@ -21,4 +21,8 @@ export class EpisodeListComponent {
             width: '90%',
         });
     }
+
+    public handleNav(): void {
+        console.log('handle nav');
+    }
 }

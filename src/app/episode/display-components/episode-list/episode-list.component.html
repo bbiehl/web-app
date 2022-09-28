@@ -20,12 +20,15 @@
                 mat-card-image
                 src="{{ episode.properties.poster }}"
                 alt="Poster for {{ episode.properties.title }}"
+                (click)="handleNav()"
             />
             <mat-card-header>
-                <mat-card-title class="pointer">{{ episode.properties.title }} ({{ episode.properties.year }}) </mat-card-title>
+                <mat-card-title class="pointer" (click)="handleNav()"
+                    >{{ episode.properties.title }} ({{ episode.properties.year }})
+                </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <p class="pointer">
+                <p class="pointer" (click)="handleNav()">
                     {{
                         episode.properties.description.length > 140
                             ? (episode.properties.description | slice: 0:140) + " ..."
