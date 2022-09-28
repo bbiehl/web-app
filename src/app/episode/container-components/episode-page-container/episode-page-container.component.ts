@@ -7,11 +7,11 @@ import { Episode } from '../../types/episode.model';
 
 @UntilDestroy()
 @Component({
-    selector: 'app-episode-list-container',
-    templateUrl: './episode-list-container.component.html',
-    styleUrls: ['./episode-list-container.component.scss'],
+    selector: 'app-episode-page-container',
+    templateUrl: './episode-page-container.component.html',
+    styleUrls: ['./episode-page-container.component.scss'],
 })
-export class EpisodeListContainerComponent {
+export class EpisodePageContainerComponent {
     episode$: Observable<Episode[]> = this.store.select(selectAllEpisodes);
     isLoading$: Observable<boolean> = this.store.select(selectEpisodeStateIsLoading);
 

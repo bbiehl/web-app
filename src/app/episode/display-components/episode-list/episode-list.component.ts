@@ -10,9 +10,11 @@ import { Episode } from '../../types/episode.model';
 })
 export class EpisodeListComponent {
     @Input() episodes: Episode[] | null = [];
-    @Input() loading: boolean | null = true;
+    @Input() loading: boolean | null;
 
-    constructor(public dialog: MatDialog) {}
+    constructor(public dialog: MatDialog) {
+        this.loading = true;
+    }
 
     public openAddEpisodeDialog(): void {
         const dialogRef = this.dialog.open(EpisodeAddContainerComponent, {
