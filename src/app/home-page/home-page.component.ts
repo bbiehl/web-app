@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { UntilDestroy } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectAllEpisodes, selectEpisodeStateIsLoading } from '../episode/store/episode.selector';
+import { selectAllEpisodes } from '../episode/store/episode.selector';
 import { Episode } from '../episode/types/episode.model';
 
 @UntilDestroy()
@@ -13,7 +13,8 @@ import { Episode } from '../episode/types/episode.model';
 })
 export class HomePageComponent {
     episodes$: Observable<Episode[]> = this.store.select(selectAllEpisodes);
-    episodesAreLoading$: Observable<boolean> = this.store.select(selectEpisodeStateIsLoading);
+    // TODO: get isLoading selector working
+    // episodesAreLoading$: Observable<boolean> = this.store.select(selectEpisodeStateIsLoading);
 
     constructor(private store: Store) {}
 }

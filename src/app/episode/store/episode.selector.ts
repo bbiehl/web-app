@@ -12,9 +12,10 @@ export const episodeReducers: ActionReducerMap<EpisodeState> = {
 export const selectEpisodeState = createFeatureSelector<fromEpisodeReducer.EpisodeState>(
     fromEpisodeReducer.EpisodeFeatureKey
 );
-export const selectEpisodeStateIsLoading = createFeatureSelector<fromEpisodeReducer.EpisodeState['isLoading']>(
-    fromEpisodeReducer.EpisodeFeatureKey
-);
+// TODO: get isLoading selector working
+// export const selectEpisodeStateIsLoading = createFeatureSelector<fromEpisodeReducer.EpisodeState['isLoading']>(
+//     fromEpisodeReducer.EpisodeFeatureKey
+// );
 
 export const selectAllEpisodes = createSelector(selectEpisodeState, fromEpisodeReducer.selectAllEpisodes);
 export const selectEpisodeEntities = createSelector(selectEpisodeState, fromEpisodeReducer.selectEpisodeEntities);
