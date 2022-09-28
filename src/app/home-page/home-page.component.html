@@ -1,17 +1,16 @@
-<div class="container text-center">
-    <h1>Welcome to Analog Jones and the Temple of Film</h1>
-    <h2>I'm Steve and we're a podcast that breaks down the ...</h2>
-</div>
+<div class="container" fxLayout="column">
+    <div class="welcome-message text-center">
+        <h1>Welcome to Analog Jones and the Temple of Film</h1>
+        <h2>I'm Steve and we're a podcast that breaks down the ...</h2>
+    </div>
+    <app-episode-list [episodes]="episodes$ | async | slice: 0:2" [loading]="false"></app-episode-list>
 
-<div class="container">
-    <app-episode-list [episodes]="(episodes$ | async) | slice: 0:1" [loading]="false"></app-episode-list>
-</div>
-
-<div class="container">
     <div fxLayout="row" fxLayoutAlign="center">
         <button mat-raised-button color="accent" class="center">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL
             EPISODES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </button>
     </div>
+
+    \
 </div>

@@ -1,63 +1,46 @@
-<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
-    <div *ngIf="loading">
-        <mat-spinner class="align-center" color="primary"></mat-spinner>
+<div *ngIf="loading">
+    <mat-spinner class="align-center" color="primary"></mat-spinner>
+</div>
+<div *ngIf="!loading" fxLayout="column" fxLayoutAlign="">
+    <div class="align-center">
+        <button mat-fab color="primary" (click)="openAddEpisodeDialog()">
+            <mat-icon aria-hidden="false" aria-label="add icon" fontIcon="add"></mat-icon>
+        </button>
     </div>
-    <div *ngIf="!loading" fxLayout="column" fxLayoutGap="20px">
-        <div fxFlex fxLayout="row" fxLayoutAlign="center">
-            <button mat-fab color="primary" (click)="openAddEpisodeDialog()">
-                <mat-icon aria-hidden="false" aria-label="add icon" fontIcon="add"></mat-icon>
-            </button>
-        </div>
-        <div *ngFor="let episode of episodes" fxLayout="row" fxLayoutAlign="space-around center">
-            <mat-card>
-                <a href="#">
-                    <img
-                        mat-card-image
-                        src="{{ episode.properties.poster }}"
-                        alt="Poster for {{ episode.properties.title }}"
-                /></a>
-                <mat-card-header>
-                    <mat-card-title
-                        ><a href="#">{{ episode.properties.title }} ({{ episode.properties.year }})</a>
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content
-                    ><a href="#">
-                        <p>
-                            {{
-                                episode.properties.description.length > 140
-                                    ? (episode.properties.description | slice: 0:140) + " ..."
-                                    : episode.properties.description
-                            }}
-                        </p>
-                    </a>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button><mat-icon fontIcon="forum"></mat-icon>&nbsp;3</button>
-                    <span>{{ episode.properties.author }}</span>
-                </mat-card-actions>
-            </mat-card>
-        </div>
+    <div
+        fxLayout.gt-sm="row wrap"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.gt-sm="space-around"
+        fxLayoutAlign.lt-md="start center"
+        fxLayoutGap.lt-md="10px"
+    >
+        <mat-card *ngFor="let episode of episodes" fxFlex.lt-md="100%" fxFlex.md="40%" fxFlex.lg="30%" fxFlex.xl="19%">
+            <a href="#">
+                <img
+                    mat-card-image
+                    src="{{ episode.properties.poster }}"
+                    alt="Poster for {{ episode.properties.title }}"
+            /></a>
+            <mat-card-header>
+                <mat-card-title
+                    ><a href="#">{{ episode.properties.title }} ({{ episode.properties.year }})</a>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content
+                ><a href="#">
+                    <p>
+                        {{
+                            episode.properties.description.length > 140
+                                ? (episode.properties.description | slice: 0:140) + " ..."
+                                : episode.properties.description
+                        }}
+                    </p>
+                </a>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button><mat-icon fontIcon="forum"></mat-icon>&nbsp;3</button>
+                <span>{{ episode.properties.author }}</span>
+            </mat-card-actions>
+        </mat-card>
     </div>
 </div>
-
-<!--
-<mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card> -->
