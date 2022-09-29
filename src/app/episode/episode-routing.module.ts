@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Categories } from 'src/app/shared/types/categories.enum';
-import { EpisodePageContainerComponent } from './container-components/episode-page-container/episode-page-container.component';
+import { EpisodeSummaryComponent } from './episode-summary/episode-summary.component';
 
 const routes: Routes = [
-    { path: Categories.EPISODES, component: EpisodePageContainerComponent, title: 'All Episodes' },
-    { path: '**', redirectTo: Categories.EPISODES },
+    { path: Categories.EPISODES, component: EpisodeSummaryComponent, title: 'All Episodes' },
+    { path: `${Categories.EPISODES}/**`, redirectTo: Categories.EPISODES },
 ];
 
 @NgModule({

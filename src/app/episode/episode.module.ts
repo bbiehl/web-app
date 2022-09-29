@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { EpisodeAddContainerModule } from './container-components/episode-add-container/episode-add-container.module';
-import { EpisodeListContainerModule } from './container-components/episode-page-container/episode-page-container.module';
+import { EpisodeDetailModule } from './episode-detail/episode-detail.module';
+import { EpisodeOverviewModule } from './episode-overview/episode-overview.module';
+import { EpisodeSummaryModule } from './episode-summary/episode-summary.module';
 
 @NgModule({
     declarations: [],
-    imports: [CommonModule, EpisodeAddContainerModule, EpisodeListContainerModule],
+    imports: [CommonModule, EpisodeDetailModule, EpisodeOverviewModule, EpisodeSummaryModule],
 })
 export class EpisodeModule {}

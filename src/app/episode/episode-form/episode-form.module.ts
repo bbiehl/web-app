@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EpisodeEditContainerComponent } from './episode-edit-container.component';
+import { EpisodeFormComponent } from './episode-form.component';
 
 
 
 @NgModule({
   declarations: [
-    EpisodeEditContainerComponent
+    EpisodeFormComponent
   ],
   imports: [
     CommonModule
   ]
 })
-export class EpisodeEditContainerModule { }
+export class EpisodeFormModule { }
