@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getEpisodes } from './episode/store/episode.actions';
+import { loadEpisodesRequest } from './episode/store/episode.actions';
 import { Categories } from './shared/types/categories.enum';
 
 @Component({
@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
     constructor(private store: Store) {}
 
     ngOnInit(): void {
-        this.store.dispatch(getEpisodes());
+        this.store.dispatch(loadEpisodesRequest());
     }
 }

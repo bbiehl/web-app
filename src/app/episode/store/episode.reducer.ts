@@ -26,7 +26,7 @@ export const initialEpisodeState: EpisodeState = episodeAdapter.getInitialState(
 export const episodeReducer = createReducer<EpisodeState>(
     initialEpisodeState,
     on(
-        EpisodeActions.getEpisodes,
+        EpisodeActions.loadEpisodesRequest,
         (episodeState): EpisodeState => ({
             ...episodeState,
             error: false,
@@ -35,7 +35,7 @@ export const episodeReducer = createReducer<EpisodeState>(
         })
     ),
     on(
-        EpisodeActions.getEpisodesFail,
+        EpisodeActions.loadEpisodesFailure,
         (episodeState): EpisodeState => ({
             ...episodeState,
             error: true,
@@ -43,7 +43,7 @@ export const episodeReducer = createReducer<EpisodeState>(
             isLoading: false,
         })
     ),
-    on(EpisodeActions.loadEpisodes, (episodeState: EpisodeState, { episodes }) => {
+    on(EpisodeActions.loadEpisodesSuccess, (episodeState: EpisodeState, { episodes }) => {
         episodeState = {
             ...episodeState,
             error: false,
