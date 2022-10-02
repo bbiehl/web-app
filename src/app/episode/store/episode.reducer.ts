@@ -14,7 +14,10 @@ export function sortByDate(a: Episode, b: Episode): number {
     return b.properties.date.toUTCString().localeCompare(a.properties.date.toUTCString());
 }
 
-export const episodeAdapter: EntityAdapter<Episode> = createEntityAdapter<Episode>({ sortComparer: sortByDate });
+export const episodeAdapter: EntityAdapter<Episode> = createEntityAdapter<Episode>({
+    sortComparer: sortByDate,
+    selectId: (episode) => episode.id,
+});
 
 export const initialEpisodeState: EpisodeState = episodeAdapter.getInitialState({
     error: null,
