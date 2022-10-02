@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { EpisodeFormComponent } from '../episode-form/episode-form.component';
-import { selectAllEpisodes } from '../store/episode.selector';
+import { selectAllEpisodes, selectEpisodesAreLoading } from '../store/episode.selector';
 import { Episode } from '../types/episode.model';
 
 @Component({
@@ -13,17 +11,9 @@ import { Episode } from '../types/episode.model';
 })
 export class EpisodeSummaryComponent {
     episodes$: Observable<Episode[]> = this.store.select(selectAllEpisodes);
-    // TODO: get isLoading selector working
-    // isLoading$: Observable<boolean> = this.store.select(selectEpisodeStateIsLoading);
-    loading: boolean = false;
+    loading$: Observable<boolean> = this.store.select(selectEpisodesAreLoading);
 
-    constructor(public dialog: MatDialog, private store: Store) {}
-
-    public openAddEpisodeDialog(): void {
-        const dialogRef = this.dialog.open(EpisodeFormComponent, {
-            width: '90%',
-        });
-    }
+    constructor(private store: Store) {}
 
     public handleNav(): void {
         console.log('handle nav');

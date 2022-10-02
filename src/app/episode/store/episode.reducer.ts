@@ -6,8 +6,7 @@ import * as EpisodeActions from './episode.actions';
 export const EpisodeFeatureKey = 'episodes';
 
 export interface EpisodeState extends EntityState<Episode> {
-    error: boolean;
-    isLoaded: boolean;
+    error: any;
     isLoading: boolean;
 }
 
@@ -18,8 +17,7 @@ export function sortByDate(a: Episode, b: Episode): number {
 export const episodeAdapter: EntityAdapter<Episode> = createEntityAdapter<Episode>({ sortComparer: sortByDate });
 
 export const initialEpisodeState: EpisodeState = episodeAdapter.getInitialState({
-    error: false,
-    isLoaded: false,
+    error: null,
     isLoading: false,
 });
 
@@ -29,8 +27,7 @@ export const episodeReducer = createReducer<EpisodeState>(
         EpisodeActions.loadEpisodesRequest,
         (episodeState): EpisodeState => ({
             ...episodeState,
-            error: false,
-            isLoaded: false,
+            error: null,
             isLoading: true,
         })
     ),
@@ -38,19 +35,16 @@ export const episodeReducer = createReducer<EpisodeState>(
         EpisodeActions.loadEpisodesFailure,
         (episodeState): EpisodeState => ({
             ...episodeState,
-            error: true,
-            isLoaded: false,
+            error: 'error msg',
             isLoading: false,
         })
     ),
     on(EpisodeActions.loadEpisodesSuccess, (episodeState: EpisodeState, { episodes }) => {
-        episodeState = {
+        return episodeAdapter.setAll(episodes, {
             ...episodeState,
-            error: false,
-            isLoaded: true,
+            error: null,
             isLoading: false,
-        };
-        return episodeAdapter.setAll(episodes, episodeState);
+        });
     }),
     on(EpisodeActions.mapEpisodes, (episodeState, { entityMap }) => {
         return episodeAdapter.map(entityMap, episodeState);

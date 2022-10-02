@@ -2,20 +2,17 @@ import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/s
 import * as fromEpisodeReducer from './episode.reducer';
 
 export interface EpisodeState {
-    episodes: fromEpisodeReducer.EpisodeState;
+    episodeState: fromEpisodeReducer.EpisodeState;
 }
 
 export const episodeReducers: ActionReducerMap<EpisodeState> = {
-    episodes: fromEpisodeReducer.episodeReducer,
+    episodeState: fromEpisodeReducer.episodeReducer,
 };
 
 export const selectEpisodeState = createFeatureSelector<fromEpisodeReducer.EpisodeState>(
     fromEpisodeReducer.EpisodeFeatureKey
 );
-// TODO: get isLoading selector working
-// export const selectEpisodeStateIsLoading = createFeatureSelector<fromEpisodeReducer.EpisodeState['isLoading']>(
-//     fromEpisodeReducer.EpisodeFeatureKey
-// );
 
 export const selectAllEpisodes = createSelector(selectEpisodeState, fromEpisodeReducer.selectAllEpisodes);
 export const selectEpisodeEntities = createSelector(selectEpisodeState, fromEpisodeReducer.selectEpisodeEntities);
+export const selectEpisodesAreLoading = createSelector(selectEpisodeState, (state) => state.isLoading);
