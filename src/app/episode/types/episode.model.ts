@@ -11,6 +11,7 @@ export interface Episode {
             podBean: string;
             youTube: string;
         };
+        slug: string;
         title: string;
         visible: boolean;
         year: string;
