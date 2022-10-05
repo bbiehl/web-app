@@ -16,7 +16,7 @@ export function sortByDate(a: Episode, b: Episode): number {
 
 export const episodeAdapter: EntityAdapter<Episode> = createEntityAdapter<Episode>({
     sortComparer: sortByDate,
-    selectId: (episode) => episode.id,
+    // selectId: (episode) => episode.id,
 });
 
 export const initialEpisodeState: EpisodeState = episodeAdapter.getInitialState({
