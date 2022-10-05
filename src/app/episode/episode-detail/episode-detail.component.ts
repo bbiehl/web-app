@@ -20,9 +20,7 @@ export class EpisodeDetailComponent implements OnInit {
 
     ngOnInit(): void {
         this.episode$.pipe(untilDestroyed(this)).subscribe((ep) => {
-            if (ep === undefined) {
-                this.router.navigateByUrl(Categories.EPISODES);
-            }
+            if (ep === undefined) this.router.navigateByUrl(Categories.EPISODES);
         });
     }
 }
