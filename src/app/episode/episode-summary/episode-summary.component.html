@@ -18,19 +18,19 @@
                 fxFlex.xl="19%"
             >
                 <img
+                    [routerLink]="[episode.id]"
                     class="pointer"
                     mat-card-image
                     src="{{ episode.properties.poster }}"
                     alt="Poster for {{ episode.properties.title }}"
-                    (click)="handleNav()"
                 />
                 <mat-card-header>
-                    <mat-card-title class="pointer" (click)="handleNav()"
+                    <mat-card-title class="pointer" [routerLink]="[episode.id]"
                         >{{ episode.properties.title }} ({{ episode.properties.year }})
                     </mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <p class="pointer" (click)="handleNav()">
+                    <p class="pointer" [routerLink]="[episode.id]">
                         {{
                             episode.properties.description.length > 140
                                 ? (episode.properties.description | slice: 0:140) + " ..."
@@ -39,7 +39,9 @@
                     </p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button><mat-icon fontIcon="forum"></mat-icon>&nbsp;3</button>
+                    <button mat-button>
+                        <mat-icon matBadge="69" matBadgeColor="primary" matBadgeSize="small">forum</mat-icon>
+                    </button>
                     <span>{{ episode.properties.author }}</span>
                 </mat-card-actions>
             </mat-card>

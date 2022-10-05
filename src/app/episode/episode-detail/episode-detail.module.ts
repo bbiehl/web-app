@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EpisodeDetailComponent } from './episode-detail.component';
-
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    EpisodeDetailComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+    declarations: [EpisodeDetailComponent],
+    imports: [CommonModule, RouterModule],
 })
-export class EpisodeDetailModule { }
+export class EpisodeDetailModule {}

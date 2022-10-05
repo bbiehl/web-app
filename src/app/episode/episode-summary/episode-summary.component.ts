@@ -14,8 +14,4 @@ export class EpisodeSummaryComponent {
     loading$: Observable<boolean> = this.store.select(selectEpisodesAreLoading);
 
     constructor(private store: Store) {}
-
-    public handleNav(): void {
-        console.log('handle nav');
-    }
 }

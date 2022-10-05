@@ -53,9 +53,3 @@ export const episodeReducer = createReducer<EpisodeState>(
         return episodeAdapter.map(entityMap, episodeState);
     })
 );
-
-// get the selectors
-// TODO: move this into the selector
-const { selectAll, selectEntities } = episodeAdapter.getSelectors();
-export const selectAllEpisodes = selectAll;
-export const selectEpisodeEntities = selectEntities;
