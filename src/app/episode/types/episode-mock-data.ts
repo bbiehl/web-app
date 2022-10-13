@@ -1,10 +1,12 @@
+import { mockUsers } from 'src/app/shared/types/users-mock';
 import { Episode } from './episode.model';
 
 export const EpisodeMockData: Episode[] = [
     {
         id: 'topGunMaverick',
         properties: {
-            author: 'Vengeance Brad',
+            author: mockUsers[0],
+            comments: [],
             date: new Date('2022-06-14T00:00:00.000Z'),
             description:
                 "After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to fly it.",
@@ -24,7 +26,8 @@ export const EpisodeMockData: Episode[] = [
     {
         id: 'highlanderThereCanBeOnlyOne',
         properties: {
-            author: 'Steve',
+            author: mockUsers[1],
+            comments: [],
             date: new Date('2022-07-19T00:00:00.000Z'),
             description:
                 'An immortal Scottish swordsman must confront the last of his immortal opponent, a murderously brutal barbarian who lusts for the fabled "Prize".',
@@ -44,7 +47,8 @@ export const EpisodeMockData: Episode[] = [
     {
         id: 'highlander2theQuickening',
         properties: {
-            author: 'Chris',
+            author: mockUsers[2],
+            comments: [],
             date: new Date('2022-08-03T00:00:00.000Z'),
             description: 'Analog Jones tries their best to understand this.',
             poster: 'https://m.media-amazon.com/images/M/MV5BOWY0ODFiNGQtZWQ2Yi00YTc0LWFhYTUtMmE3NGNhY2FhMmYzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_Ratio0.7273_AL_.jpg   ',
