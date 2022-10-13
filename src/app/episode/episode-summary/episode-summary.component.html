@@ -41,9 +41,14 @@
                 </mat-card-content>
                 <mat-card-actions>
                     <button mat-button>
-                        <mat-icon matBadge="69" matBadgeColor="primary" matBadgeSize="small">forum</mat-icon>
+                        <mat-icon
+                            matBadge="{{ episode.properties.comments.length }}"
+                            matBadgeColor="primary"
+                            matBadgeSize="small"
+                            >forum
+                        </mat-icon>
                     </button>
-                    <span>{{ episode.properties.author }}</span>
+                    <span>{{ episode.properties.author.properties.userName }}</span>
                 </mat-card-actions>
             </mat-card>
         </div>
