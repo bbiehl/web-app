@@ -15,7 +15,7 @@ import { Episode } from '../types/episode.model';
 })
 export class EpisodeDetailComponent implements OnInit {
     episode$: Observable<Episode | null> = this.store.select(selectSelectedEpisode);
-    episode: Episode | undefined = undefined;
+    episode!: Episode;
 
     constructor(private router: Router, private store: Store) {}
 

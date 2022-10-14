@@ -1,13 +1,19 @@
 <div class="container" fxLayout="column" fxLayoutAlign="start center">
-    <h1>{{ episode?.properties?.title }} ({{ episode?.properties?.year }})</h1>
-    <div>{{ episode?.properties?.author?.properties?.userName }}</div>
+    <h1>{{ episode.properties.title }} ({{ episode.properties.year }})</h1>
+    <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
+        <div>{{ episode.properties.author.properties.userName | uppercase }}</div>
+        <div>{{ episode.properties.date | date }}</div>
+    </div>
+    <p></p>
+
     <div fxLayout="row" fxLayoutAlign="center">
         <img
             fxFlex.lt-md="90%"
             fxFlex.gt-sm="600px"
-            src="{{ episode?.properties?.poster }}"
-            alt="Poster for {{ episode?.properties?.title }}"
+            src="{{ episode.properties.poster }}"
+            alt="Poster for {{ episode.properties.title }}"
         />
     </div>
-    <p style="padding: 20px">{{ episode?.properties?.description }}</p>
+    <p style="padding: 20px">{{ episode.properties.description }}</p>
+
 </div>
