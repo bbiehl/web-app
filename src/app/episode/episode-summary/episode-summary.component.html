@@ -19,19 +19,19 @@
                 fxFlex.xl="19%"
             >
                 <img
-                    [routerLink]="[episode.id]"
+                    (click)="handleLinkClick(episode)"
                     class="pointer"
                     mat-card-image
                     src="{{ episode.properties.poster }}"
                     alt="Poster for {{ episode.properties.title }}"
                 />
                 <mat-card-header>
-                    <mat-card-title class="pointer" [routerLink]="[episode.id]"
+                    <mat-card-title class="pointer" (click)="handleLinkClick(episode)"
                         >{{ episode.properties.title }} ({{ episode.properties.year }})
                     </mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <p class="pointer" [routerLink]="[episode.id]">
+                    <p class="pointer" (click)="handleLinkClick(episode)">
                         {{
                             episode.properties.description.length > 140
                                 ? (episode.properties.description | slice: 0:140) + " ..."

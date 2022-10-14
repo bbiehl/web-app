@@ -12,4 +12,8 @@ export class EpisodeService {
     getEpisodes(): Observable<Episode[]> {
         return of(EpisodeMockData).pipe(delay(2000));
     }
+
+    getOneEpisode(id: string): Observable<Episode> {
+        return of(EpisodeMockData.filter(e => e.id === id)[0]);
+    }
 }

@@ -13,4 +13,5 @@ export const selectEpisode = createSelector(
     selectRouteParams,
     (episodes, { id }) => episodes[id]
 );
-export const selectEpisodesAreLoading = createSelector(selectEpisodeState, (state) => state.isLoading);
+export const selectEpisodesAreLoading = createSelector(selectEpisodeState, (episodeState) => episodeState.isLoading);
+export const selectSelectedEpisode = createSelector(selectEpisodeState, (episodeState) => episodeState.selectedEpisode);

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
-import { combineLatest, map, Observable } from 'rxjs';
-import { selectAllEpisodes } from '../store/episode.selector';
+import { Observable } from 'rxjs';
+import { Categories } from 'src/app/shared/types/categories.enum';
+import { selectSelectedEpisode } from '../store/episode.selector';
 import { Episode } from '../types/episode.model';
 
 @UntilDestroy()
@@ -13,21 +14,18 @@ import { Episode } from '../types/episode.model';
     styleUrls: ['./episode-detail.component.scss'],
 })
 export class EpisodeDetailComponent implements OnInit {
-    episodes$: Observable<Episode[]> = this.store.select(selectAllEpisodes);
-    episodeId$: Observable<string | null> = this.activatedRoute.paramMap.pipe(
-        map((params: ParamMap) => params.get('id'))
-    );
-    episode: Episode | undefined;
+    episode$: Observable<Episode | null> = this.store.select(selectSelectedEpisode);
+    episode: Episode | undefined = undefined;
 
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private store: Store) {
-        this.episode = undefined;
-    }
+    constructor(private router: Router, private store: Store) {}
 
     ngOnInit(): void {
-        combineLatest([this.episodes$, this.episodeId$])
-            .pipe(untilDestroyed(this))
-            .subscribe(([episodes, episodeId]) => {
-                this.episode = episodes.filter((ep) => ep.id === episodeId)[0];
-            });
+        this.episode$.pipe(untilDestroyed(this)).subscribe((ep) => {
+            if (!ep) {
+                this.router.navigate([Categories.EPISODES]);
+            } else {
+                this.episode = ep;
+            }
+        });
     }
 }
