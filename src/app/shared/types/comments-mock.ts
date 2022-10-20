@@ -4,7 +4,20 @@ import { mockUsers } from "./users-mock"
 export const MockComments: UserComment[] = [
     {
         comment: 'Totally Lame',
-        replies: [],
+        replies: [
+            {
+                user: mockUsers[1],
+                reply: 'Fuck you, you fucking fuck!'
+            },
+            {
+                user: mockUsers[4],
+                reply: 'Fuck you, you fucking fuck!'
+            },
+            {
+                user: mockUsers[3],
+                reply: 'Fuck you, you fucking fuck!'
+            }
+        ],
         user: mockUsers[0],
     },
     {

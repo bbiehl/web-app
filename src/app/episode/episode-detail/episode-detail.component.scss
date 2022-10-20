@@ -1,6 +1,6 @@
 h1 {
     font-size: 28px;
-    margin: 20px 0;
+    // margin: 20px 0;
 }
 
 img {
@@ -9,4 +9,20 @@ img {
 
 p {
     font-size: 18px;
+}
+
+.header {
+    // padding: 20px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.links {
+    width: 100%;
+    .mat-icon {
+        height: 34px;
+        width: 34px;
+    }
 }

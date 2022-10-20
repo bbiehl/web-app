@@ -10,6 +10,7 @@ export interface Episode {
         description: string;
         poster: string;
         links: {
+            applePodcasts: string;
             iHeartRadio: string;
             iTunes: string;
             podBean: string;
