@@ -1,22 +1,21 @@
 h1 {
     font-size: 28px;
-    // margin: 20px 0;
-}
-
-img {
-    max-width: 100%;
 }
 
 p {
     font-size: 18px;
 }
 
+.poster {
+    width: 100%;
+}
+
 .header {
-    // padding: 20px;
+    width: 100%;
 }
 
 .content {
-    padding: 20px;
+    width: 100%;
 }
 
 .links {
@@ -25,4 +24,8 @@ p {
         height: 34px;
         width: 34px;
     }
+}
+
+.comments {
+    width: 100%;
 }

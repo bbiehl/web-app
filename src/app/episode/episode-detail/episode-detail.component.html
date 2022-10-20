@@ -1,16 +1,14 @@
 <div class="container" fxLayout="column" fxLayoutAlign="start center">
-    <div class="header">
-        <h1>{{ episode.properties.title }} ({{ episode.properties.year }})</h1>
+    <div class="header" fxLayout="column" fxLayoutAlign="start center">
+        <h1 style="text-align: center;">{{ episode.properties.title }} ({{ episode.properties.year }})</h1>
         <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
             <div>{{ episode.properties.author.properties.userName | uppercase }}</div>
             <div>{{ episode.properties.date | date }}</div>
         </div>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="start center">
-        <img
-            fxFlex.lt-md="90%"
-            fxFlex.gt-sm="600px"
+    <div class="poster" fxLayout="row" fxLayoutAlign="center">
+        <img fxFlex.xs="100" fxFlex.gt-xs="580px"
             src="{{ episode.properties.poster }}"
             alt="Poster for {{ episode.properties.title }}"
         />
@@ -23,7 +21,7 @@
             href="{{ episode.properties.links.applePodcasts }}"
             target="_blank"
             matTooltip="Find on Apple Podcasts"
-            matTooltipPosition="above"
+            matTooltipPosition="below"
         >
             <mat-icon svgIcon="applePodcasts" aria-hidden="false" aria-label="Apple Podcasts SVG icon"></mat-icon>
         </a>
@@ -33,7 +31,7 @@
             href="{{ episode.properties.links.iHeartRadio }}"
             target="_blank"
             matTooltip="Find on iHeartRadio"
-            matTooltipPosition="above"
+            matTooltipPosition="below"
         >
             <mat-icon svgIcon="iHeartRadio" aria-hidden="false" aria-label="iHeartRadio SVG icon"></mat-icon>
         </a>
@@ -43,7 +41,7 @@
             href="{{ episode.properties.links.iTunes }}"
             target="_blank"
             matTooltip="Find on iTunes"
-            matTooltipPosition="above"
+            matTooltipPosition="below"
         >
             <mat-icon svgIcon="iTunes" aria-hidden="false" aria-label="iTunes SVG icon"></mat-icon>
         </a>
@@ -64,7 +62,7 @@
         </a>
     </div>
 
-    <div [innerText]="episode.properties.description"></div>
+    <div class="content" [innerText]="episode.properties.description"></div>
 
     <div class="comments">
         <h3>Comments</h3>

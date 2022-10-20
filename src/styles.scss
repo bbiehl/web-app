@@ -40,7 +40,7 @@ $web-app-theme: mat.define-light-theme(
 html,
 body {
     height: 100%;
-    background-color: beige;
+    background-color: #333;
 }
 body {
     margin: 0;
@@ -57,7 +57,7 @@ a:hover {
     max-width: 100%;
     background-color: #212121;
 }
-.align-center {
+.center {
     margin-left: auto;
     margin-right: auto;
 }
@@ -67,32 +67,40 @@ a:hover {
 .pointer {
     cursor: pointer;
 }
+
+.container {
+    background-color: #999;
+    margin-left: auto;
+    margin-right: auto;
+}
 // ///////////////////////////////
 // Angular Flex-Layout Breakpoints
 // ///////////////////////////////
 @media (max-width: 599px) {
     .container {
         max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 @media (min-width: 600px) {
     .container {
         max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
+        // margin-left: auto;
+        // margin-right: auto;
     }
 }
 @media (min-width: 960px) {
     .container {
         max-width: 940px;
-        margin-left: auto;
-        margin-right: auto;
+        // margin-left: auto;
+        // margin-right: auto;
     }
 }
 @media (min-width: 1200px) {
     .container {
         max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
+        // margin-left: auto;
+        // margin-right: auto;
     }
 }

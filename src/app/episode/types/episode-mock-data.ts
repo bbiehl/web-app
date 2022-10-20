@@ -78,7 +78,9 @@ How to find Analog Jones
 Discuss these movies and more on our Facebook page.
 
 You can also listen to us on iTunes, iHeartRADIO, Podbean, and Youtube!
-Please email us at analogjonestof@gmail.com with any comments or questions! Brad says "Higlander 2 is better than Highlander, CHANGE MY MIND!"
+Please email us at analogjonestof@gmail.com with any comments or questions!
+
+Brad says "Higlander 2 is better than Highlander, CHANGE MY MIND!"
             `,
             poster: 'https://m.media-amazon.com/images/M/MV5BOWY0ODFiNGQtZWQ2Yi00YTc0LWFhYTUtMmE3NGNhY2FhMmYzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_Ratio0.7273_AL_.jpg   ',
             links: {
