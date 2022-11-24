@@ -2,7 +2,7 @@
     <div class="header" fxLayout="column" fxLayoutAlign="start center">
         <h1 style="text-align: center;">{{ episode.properties.title }} ({{ episode.properties.year }})</h1>
         <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
-            <div>{{ episode.properties.author.properties.userName | uppercase }}</div>
+            <div>Author</div>
             <div>{{ episode.properties.date | date }}</div>
         </div>
     </div>
@@ -64,7 +64,7 @@
 
     <div class="content" [innerText]="episode.properties.description"></div>
 
-    <div class="comments">
+    <!-- <div class="comments">
         <h3>Comments</h3>
         <div *ngFor="let comment of episode.properties.comments">
             <div>comment: {{ comment.comment }} - {{ comment.user.properties.userName }}</div>
@@ -73,5 +73,5 @@
             </div>
             <mat-divider></mat-divider>
         </div>
-    </div>
+    </div> -->
 </div>

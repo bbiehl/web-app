@@ -1,5 +1,5 @@
 import { FormArray, FormControl } from '@angular/forms';
-import { UserComment } from 'src/app/shared/types/comment.model';
+import { UserComment } from 'src/app/comment/models/comment.model';
 
 export interface EpisodeForm {
     date: FormControl<Date>;

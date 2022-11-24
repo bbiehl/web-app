@@ -1,4 +1,3 @@
-import { MockComments } from 'src/app/shared/types/comments-mock';
 import { mockUsers } from 'src/app/shared/types/users-mock';
 import { Episode } from './episode.model';
 
@@ -6,8 +5,7 @@ export const EpisodeMockData: Episode[] = [
     {
         id: 'topGunMaverick',
         properties: {
-            author: mockUsers[0],
-            comments: [],
+            authorId: 'brad123',
             date: new Date('2022-06-14T00:00:00.000Z'),
             description:
                 "After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to fly it.",
@@ -28,8 +26,7 @@ export const EpisodeMockData: Episode[] = [
     {
         id: 'highlanderThereCanBeOnlyOne',
         properties: {
-            author: mockUsers[1],
-            comments: [],
+            authorId: 'steve123',
             date: new Date('2022-07-19T00:00:00.000Z'),
             description:
                 'An immortal Scottish swordsman must confront the last of his immortal opponent, a murderously brutal barbarian who lusts for the fabled "Prize".',
@@ -50,8 +47,7 @@ export const EpisodeMockData: Episode[] = [
     {
         id: 'highlander2theQuickening',
         properties: {
-            author: mockUsers[2],
-            comments: [MockComments[0], MockComments[1], MockComments[2]],
+            authorId: 'chris123',
             date: new Date('2022-08-03T00:00:00.000Z'),
             description: `
 Analog Jones tries their best to understand the magic behind Highlander II: The Quickening!

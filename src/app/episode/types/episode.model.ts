@@ -1,11 +1,7 @@
-import { UserComment } from 'src/app/shared/types/comment.model';
-import { User } from 'src/app/shared/types/user.model';
-
 export interface Episode {
     id: string;
     properties: {
-        author: User;
-        comments: UserComment[];
+        authorId: string;
         date: Date;
         description: string;
         poster: string;
