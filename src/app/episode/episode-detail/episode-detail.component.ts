@@ -4,13 +4,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { Categories } from 'src/app/shared/types/categories.enum';
 import { APPLE_PODCASTS_ICON } from 'src/icons/apple_podcasts';
 import { IHEARTRADIO_ICON } from 'src/icons/IHeartRadio_logo';
 import { ITUNES_ICON } from 'src/icons/ITunes_logo';
-import { selectSelectedEpisode } from '../store/episode.selector';
-import { Episode } from '../types/episode.model';
+import { selectFullSingleEpisode } from '../store/episode.selector';
+import { EpisodeFull } from '../types/episode.model';
 
 @UntilDestroy()
 @Component({
@@ -19,8 +17,7 @@ import { Episode } from '../types/episode.model';
     styleUrls: ['./episode-detail.component.scss'],
 })
 export class EpisodeDetailComponent implements OnInit {
-    episode$: Observable<Episode | null> = this.store.select(selectSelectedEpisode);
-    episode!: Episode;
+    episode!: EpisodeFull;
 
     constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private router: Router, private store: Store) {
         iconRegistry.addSvgIconLiteral('applePodcasts', sanitizer.bypassSecurityTrustHtml(APPLE_PODCASTS_ICON));
@@ -29,12 +26,11 @@ export class EpisodeDetailComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.episode$.pipe(untilDestroyed(this)).subscribe((ep) => {
-            if (!ep) {
-                this.router.navigate([Categories.EPISODES]);
-            } else {
-                this.episode = ep;
-            }
-        });
+        this.store
+            .select(selectFullSingleEpisode)
+            .pipe(untilDestroyed(this))
+            .subscribe((episode) => {
+                this.episode = episode;
+            });
     }
 }

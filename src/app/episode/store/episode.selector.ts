@@ -47,17 +47,29 @@ export const selectFullEpisodes = createSelector(selectAllEpisodes, selectAllCom
     return episodesFull;
 });
 
-// export const selectFullSingleEpisode = createSelector()
-
-// export const selectEventWithLocation = createSelector(selectEvent, selectAllLocations, (event, locations) => {
-//     const eventWithLocation: EventWithLocation = {
-//         id: event?.id,
-//         properties: {
-//             date: event?.properties.date,
-//             description: event?.properties.description,
-//             location: locations.find((l) => l.id === event?.properties.locationId),
-//             title: event?.properties.title,
-//         },
-//     };
-//     return eventWithLocation;
-// });
+export const selectFullSingleEpisode = createSelector(selectEpisode, selectAllComments, (episode, comments) => {
+    const fullEpisode: EpisodeFull = {
+        id: episode?.id,
+        properties: {
+            author: 'meh',
+            comments: comments.filter(
+                (c) => c.properties.collection === Categories.EPISODES && c.properties.postId === episode?.id
+            ),
+            date: episode?.properties.date,
+            description: episode?.properties.description,
+            poster: episode?.properties.poster,
+            links: {
+                applePodcasts: episode?.properties.links.applePodcasts,
+                iHeartRadio: episode?.properties.links.iHeartRadio,
+                iTunes: episode?.properties.links.iTunes,
+                podBean: episode?.properties.links.podBean,
+                youTube: episode?.properties.links.youTube,
+            },
+            slug: episode?.properties.slug,
+            title: episode?.properties.title,
+            visible: episode?.properties.visible,
+            year: episode?.properties.year,
+        },
+    };
+    return fullEpisode;
+});

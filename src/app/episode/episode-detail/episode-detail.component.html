@@ -1,24 +1,26 @@
 <div class="container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="30px">
     <div class="header" fxLayout="column" fxLayoutAlign="start center">
-        <h1 style="text-align: center;">{{ episode.properties.title }} ({{ episode.properties.year }})</h1>
+        <h1 style="text-align: center">{{ episode.properties?.title }} ({{ episode.properties?.year }})</h1>
         <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
             <div>Author</div>
-            <div>{{ episode.properties.date | date }}</div>
+            <div>{{ episode.properties?.date | date }}</div>
         </div>
     </div>
 
     <div class="poster" fxLayout="row" fxLayoutAlign="center">
-        <img fxFlex.xs="100" fxFlex.gt-xs="580px"
-            src="{{ episode.properties.poster }}"
-            alt="Poster for {{ episode.properties.title }}"
+        <img
+            fxFlex.xs="100"
+            fxFlex.gt-xs="580px"
+            src="{{ episode.properties?.poster }}"
+            alt="Poster for {{ episode.properties?.title }}"
         />
     </div>
 
     <div class="links" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
         <a
             mat-icon-button
-            *ngIf="!!episode.properties.links.applePodcasts"
-            href="{{ episode.properties.links.applePodcasts }}"
+            *ngIf="!!episode.properties?.links?.applePodcasts"
+            href="{{ episode.properties?.links?.applePodcasts }}"
             target="_blank"
             matTooltip="Find on Apple Podcasts"
             matTooltipPosition="below"
@@ -27,8 +29,8 @@
         </a>
         <a
             mat-icon-button
-            *ngIf="!!episode.properties.links.iHeartRadio"
-            href="{{ episode.properties.links.iHeartRadio }}"
+            *ngIf="!!episode.properties?.links?.iHeartRadio"
+            href="{{ episode.properties?.links?.iHeartRadio }}"
             target="_blank"
             matTooltip="Find on iHeartRadio"
             matTooltipPosition="below"
@@ -37,8 +39,8 @@
         </a>
         <a
             mat-icon-button
-            *ngIf="!!episode.properties.links.iTunes"
-            href="{{ episode.properties.links.iTunes }}"
+            *ngIf="!!episode.properties?.links?.iTunes"
+            href="{{ episode.properties?.links?.iTunes }}"
             target="_blank"
             matTooltip="Find on iTunes"
             matTooltipPosition="below"
@@ -47,22 +49,18 @@
         </a>
         <a
             mat-icon-button
-            *ngIf="episode.properties.links.podBean.length > 0"
-            href="{{ episode.properties.links.podBean }}"
+            *ngIf="episode.properties?.links?.podBean"
+            href="{{ episode.properties?.links?.podBean }}"
             target="_blank"
         >
             podBean
         </a>
-        <a
-            *ngIf="episode.properties.links.youTube.length > 0"
-            href="{{ episode.properties.links.youTube }}"
-            target="_blank"
-        >
+        <a *ngIf="episode.properties?.links?.youTube" href="{{ episode.properties?.links?.youTube }}" target="_blank">
             youTube
         </a>
     </div>
 
-    <div class="content" [innerText]="episode.properties.description"></div>
+    <div class="content" [innerText]="episode.properties?.description"></div>
 
     <!-- <div class="comments">
         <h3>Comments</h3>
