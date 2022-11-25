@@ -1,4 +1,4 @@
-import { mockUsers } from 'src/app/shared/types/users-mock';
+import { mockUsers } from 'src/app/user/mocks/users-mock';
 import { Episode } from './episode.model';
 
 export const EpisodeMockData: Episode[] = [
