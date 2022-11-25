@@ -1,3 +1,5 @@
+import { Comment } from 'src/app/comment/models/comment.model';
+
 export interface Episode {
     id: string;
     properties: {
@@ -16,5 +18,27 @@ export interface Episode {
         title: string;
         visible: boolean;
         year: string;
+    };
+}
+
+export interface EpisodeFull {
+    id?: string;
+    properties?: {
+        author?: string;
+        comments?: Comment[];
+        date?: Date;
+        description?: string;
+        poster?: string;
+        links?: {
+            applePodcasts?: string;
+            iHeartRadio?: string;
+            iTunes?: string;
+            podBean?: string;
+            youTube?: string;
+        };
+        slug?: string;
+        title?: string;
+        visible?: boolean;
+        year?: string;
     };
 }
