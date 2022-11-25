@@ -2,7 +2,7 @@
     <div class="header" fxLayout="column" fxLayoutAlign="start center">
         <h1 style="text-align: center">{{ episode.properties?.title }} ({{ episode.properties?.year }})</h1>
         <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
-            <div>Author</div>
+            <div>{{ episode.properties?.author }}</div>
             <div>{{ episode.properties?.date | date }}</div>
         </div>
     </div>

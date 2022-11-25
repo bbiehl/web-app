@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { selectRouteParams } from 'src/app/router.selectors';
+import { selectAllUsers } from 'src/app/user/store/user.selectors';
 import { commentAdapter, CommentFeatureKey, CommentState } from './comment.reducers';
 
 export const selectCommentState = createFeatureSelector<CommentState>(CommentFeatureKey);
