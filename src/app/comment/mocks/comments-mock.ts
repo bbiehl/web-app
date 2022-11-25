@@ -92,23 +92,23 @@ export const mockComments: Comment[] = [
     {
         id: 'comment8',
         properties: {
-            body: 'I actually liked that episode',
+            body: 'Hello FuckFaces',
             collection: 'episodes',
             date: new Date('2022-07-22T00:00:00.000Z'),
             postId: 'highlander2theQuickening',
             replyIds: [],
-            userId: 'ken123',
+            userId: 'brad123',
         },
     },
     {
         id: 'comment9',
         properties: {
-            body: 'I actually liked that episode',
+            body: 'TELL BRAD TO STOP TALKING ABOUT TRUMP!',
             collection: 'episodes',
             date: new Date('2022-07-23T00:00:00.000Z'),
             postId: 'highlander2theQuickening',
             replyIds: [],
-            userId: 'ken123',
+            userId: 'chim123',
         },
     }
 ];

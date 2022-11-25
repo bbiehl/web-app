@@ -1,3 +1,5 @@
+import { User } from "src/app/user/models/user.model";
+
 export interface Comment {
     id: string;
     properties: {
@@ -7,5 +9,17 @@ export interface Comment {
         postId: string;
         replyIds: string[];
         userId: string;
+    };
+}
+
+export interface FullComment {
+    id: string;
+    properties: {
+        body: string;
+        collection: string;
+        date: Date;
+        postId: string;
+        // replies: Reply[];
+        user?: User;
     };
 }

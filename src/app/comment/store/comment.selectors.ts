@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { selectRouteParams } from 'src/app/router.selectors';
 import { selectAllUsers } from 'src/app/user/store/user.selectors';
+import { FullComment } from '../models/comment.model';
 import { commentAdapter, CommentFeatureKey, CommentState } from './comment.reducers';
 
 export const selectCommentState = createFeatureSelector<CommentState>(CommentFeatureKey);
@@ -10,3 +11,20 @@ export const selectCommentEntities = createSelector(selectCommentState, selectEn
 export const selectCommentsLoading = createSelector(selectCommentState, (state) => state.loading);
 export const selectCommentsError = createSelector(selectCommentState, (state) => state.error);
 export const selectComment = createSelector(selectCommentEntities, selectRouteParams, (events, { id }) => events[id]);
+
+export const selectFullComments = createSelector(selectAllComments, selectAllUsers, (comments, users) => {
+    const fullComments: FullComment[] = [];
+    comments.forEach((c) => {
+        fullComments.push({
+            id: c.id,
+            properties: {
+                body: c.properties.body,
+                collection: c.properties.collection,
+                date: c.properties.date,
+                postId: c.properties.postId,
+                user: users.find((u) => u.id === c.properties.userId),
+            },
+        });
+    });
+    return fullComments;
+});

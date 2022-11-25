@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { selectAllComments } from 'src/app/comment/store/comment.selectors';
+import { selectAllComments, selectFullComments } from 'src/app/comment/store/comment.selectors';
 import { selectRouteParams } from 'src/app/router.selectors';
 import { Categories } from 'src/app/shared/types/categories.enum';
 import { UserStoreModule } from 'src/app/user/store/user-store.module';
@@ -21,7 +21,7 @@ export const selectSelectedEpisode = createSelector(selectEpisodeState, (episode
 
 export const selectFullEpisodes = createSelector(
     selectAllEpisodes,
-    selectAllComments,
+    selectFullComments,
     selectAllUsers,
     (episodes, comments, users) => {
         const episodesFull: EpisodeFull[] = [];
@@ -56,7 +56,7 @@ export const selectFullEpisodes = createSelector(
 
 export const selectFullSingleEpisode = createSelector(
     selectEpisode,
-    selectAllComments,
+    selectFullComments,
     selectAllUsers,
     (episode, comments, users) => {
         const fullEpisode: EpisodeFull = {

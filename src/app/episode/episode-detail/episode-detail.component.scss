@@ -26,9 +26,40 @@ h1 {
     }
 }
 
-.comments {
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
     h3 {
         font-size: 20px;
     }
-    // width: 100%;
+
+    .comment-item {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+
+        .comment-header {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                font-size: 1rem;
+            }
+
+            .date {
+                color: #ccc;
+                font-size: 0.8rem;
+            }
+        }
+
+        .actions-row {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+    }
 }

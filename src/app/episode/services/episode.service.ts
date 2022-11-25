@@ -10,7 +10,7 @@ export class EpisodeService {
     constructor() {}
 
     getEpisodes(): Observable<Episode[]> {
-        return of(EpisodeMockData).pipe(delay(2000));
+        return of(EpisodeMockData).pipe(delay(1000));
     }
 
     getOneEpisode(id: string): Observable<Episode> {

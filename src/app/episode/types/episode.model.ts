@@ -1,4 +1,4 @@
-import { Comment } from 'src/app/comment/models/comment.model';
+import { Comment, FullComment } from 'src/app/comment/models/comment.model';
 
 export interface Episode {
     id: string;
@@ -25,7 +25,7 @@ export interface EpisodeFull {
     id?: string;
     properties?: {
         author?: string;
-        comments?: Comment[];
+        comments?: FullComment[];
         date?: Date;
         description?: string;
         poster?: string;
