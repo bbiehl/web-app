@@ -1,6 +1,6 @@
 <mat-sidenav-container class="nav" (backdropClick)="snav.close()">
     <mat-sidenav #snav (keydown.escape)="snav.close()" position="end" class="sidenav">
-        <mat-toolbar color="accent">
+        <mat-toolbar color="accent" class="toolbar">
             <div class="container nav-bar-end">
                 <button mat-icon-button (click)="snav.close()">
                     <mat-icon>close</mat-icon>
@@ -8,7 +8,7 @@
             </div>
         </mat-toolbar>
         <div class="container nav-menu">
-            <div class="nav-link">
+            <div class="nav-link top-margin">
                 <a routerLink="/" (click)="snav.close()">
                     <h3>HOME</h3>
                 </a>
@@ -19,7 +19,7 @@
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar color="primary">
+        <mat-toolbar color="primary" class="toolbar">
             <div class="container nav-bar-main">
                 <button mat-icon-button routerLink="/">
                     <mat-icon>home</mat-icon>
@@ -29,6 +29,8 @@
                 </button>
             </div>
         </mat-toolbar>
-        <router-outlet></router-outlet>
+        <div class="top-margin">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

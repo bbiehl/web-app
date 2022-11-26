@@ -41,3 +41,20 @@
     justify-content: end;
     width: 100%;
 }
+
+.toolbar {
+    position: fixed;
+    z-index: 2;
+}
+
+@media (max-width: 599px) {
+    .top-margin {
+        margin-top: 56px;
+    }
+}
+
+@media (min-width: 600px) {
+    .top-margin {
+        margin-top: 64px;
+    }
+}
