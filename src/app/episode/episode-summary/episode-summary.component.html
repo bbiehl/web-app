@@ -1,23 +1,10 @@
-<div class="container" style="margin-top: 10px">
-    <div *ngIf="loading$ | async; else episodesList">
-        <mat-spinner class="align-center" color="primary"></mat-spinner>
+<div class="container">
+    <div *ngIf="loading$ | async; else episodesList" class="spinner">
+        <mat-spinner color="primary"></mat-spinner>
     </div>
-    <ng-template #episodesList fxLayout="column">
-        <div
-            fxLayout.gt-sm="row wrap"
-            fxLayout.lt-md="column"
-            fxLayoutAlign.gt-sm="space-around"
-            fxLayoutAlign.lt-md="start center"
-            fxLayoutGap.gt-sm="0px"
-            fxLayoutGap.lt-md="20px"
-        >
-            <mat-card
-                *ngFor="let episode of episodes"
-                fxFlex.lt-md="100%"
-                fxFlex.md="40%"
-                fxFlex.lg="30%"
-                fxFlex.xl="19%"
-            >
+    <ng-template #episodesList>
+        <div class="episode-container">
+            <mat-card *ngFor="let episode of episodes">
                 <a routerLink="{{ episode.id }}">
                     <img
                         mat-card-image
@@ -25,7 +12,6 @@
                         alt="Poster for {{ episode.properties?.title }}"
                     />
                 </a>
-
                 <mat-card-header>
                     <mat-card-title>
                         <a routerLink="{{ episode.id }}">
