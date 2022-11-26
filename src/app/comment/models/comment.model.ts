@@ -8,7 +8,7 @@ export interface Comment {
         collection: string;
         date: Date;
         postId: string;
-        replyIds: string[];
+        // replyIds: string[];
         userId: string;
     };
 }
@@ -20,7 +20,7 @@ export interface FullComment {
         collection: string;
         date: Date;
         postId: string;
-        replies: Reply[];
+        // replies: Reply[];
         user?: User;
     };
 }
