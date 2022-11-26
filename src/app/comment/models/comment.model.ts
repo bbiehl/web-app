@@ -1,4 +1,5 @@
-import { User } from "src/app/user/models/user.model";
+import { Reply } from 'src/app/reply/models/reply.model';
+import { User } from 'src/app/user/models/user.model';
 
 export interface Comment {
     id: string;
@@ -19,7 +20,7 @@ export interface FullComment {
         collection: string;
         date: Date;
         postId: string;
-        // replies: Reply[];
+        replies: Reply[];
         user?: User;
     };
 }

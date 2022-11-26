@@ -105,7 +105,7 @@ export const mockComments: Comment[] = [
         properties: {
             body: 'TELL BRAD TO STOP TALKING ABOUT TRUMP!',
             collection: 'episodes',
-            date: new Date('2022-07-23T00:00:00.000Z'),
+            date: new Date('2022-07-23T11:00:00.000Z'),
             postId: 'highlander2theQuickening',
             replyIds: [],
             userId: 'chim123',
