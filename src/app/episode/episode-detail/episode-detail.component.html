@@ -59,32 +59,6 @@
             youTube
         </a>
     </div>
-
     <div class="content" [innerText]="episode.properties?.description"></div>
-
-    <div class="comment-container">
-        <h3>COMMENTS</h3>
-        <div *ngFor="let comment of episode.properties?.comments">
-            <div class="comment-item">
-                <div class="comment-header">
-                    <a href=".">{{ comment.properties.user?.properties?.userName }}</a>
-                    <div class="date">
-                        {{ comment.properties.date | date: "fullDate" }}
-                        {{ comment.properties.date | date: "shortTime" }}
-                    </div>
-                </div>
-
-                <div>{{ comment.properties.body }}</div>
-                <div class="actions-row">
-                    <button mat-icon-button matTooltip="Leave a reply" matTooltipPosition="above">
-                        <mat-icon>reply</mat-icon>Reply
-                    </button>
-                    <button mat-icon-button matTooltip="Flag as innapropriate" matTooltipPosition="above">
-                        <mat-icon>flag</mat-icon>
-                    </button>
-                </div>
-                <mat-divider></mat-divider>
-            </div>
-        </div>
-    </div>
+    <app-comment-list [comments]="episode.properties?.comments"></app-comment-list>
 </div>

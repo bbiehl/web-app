@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FullComment } from '../models/comment.model';
 
 @Component({
-  selector: 'app-comment-list',
-  templateUrl: './comment-list.component.html',
-  styleUrls: ['./comment-list.component.scss']
+    selector: 'app-comment-list',
+    templateUrl: './comment-list.component.html',
+    styleUrls: ['./comment-list.component.scss'],
 })
-export class CommentListComponent implements OnInit {
+export class CommentListComponent {
+    @Input() comments: FullComment[] | undefined;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    constructor() {
+        this.comments = [];
+    }
 }
