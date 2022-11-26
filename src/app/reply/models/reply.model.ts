@@ -17,7 +17,7 @@ export interface ReplyFull {
         body: string;
         commentId: string;
         date: Date;
-        replyToUser: User;
-        user: User;
+        replyToUser?: User;
+        user?: User;
     };
 }

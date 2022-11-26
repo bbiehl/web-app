@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { selectFullReplies } from 'src/app/reply/store/reply.selectors';
 import { selectRouteParams } from 'src/app/router.selectors';
 import { selectAllUsers } from 'src/app/user/store/user.selectors';
 import { FullComment } from '../models/comment.model';
@@ -12,19 +13,25 @@ export const selectCommentsLoading = createSelector(selectCommentState, (state) 
 export const selectCommentsError = createSelector(selectCommentState, (state) => state.error);
 export const selectComment = createSelector(selectCommentEntities, selectRouteParams, (events, { id }) => events[id]);
 
-export const selectFullComments = createSelector(selectAllComments, selectAllUsers, (comments, users) => {
-    const fullComments: FullComment[] = [];
-    comments.forEach((c) => {
-        fullComments.push({
-            id: c.id,
-            properties: {
-                body: c.properties.body,
-                collection: c.properties.collection,
-                date: c.properties.date,
-                postId: c.properties.postId,
-                user: users.find((u) => u.id === c.properties.userId),
-            },
+export const selectFullComments = createSelector(
+    selectAllComments,
+    selectAllUsers,
+    selectFullReplies,
+    (comments, users, replies) => {
+        const fullComments: FullComment[] = [];
+        comments.forEach((c) => {
+            fullComments.push({
+                id: c.id,
+                properties: {
+                    body: c.properties.body,
+                    collection: c.properties.collection,
+                    date: c.properties.date,
+                    postId: c.properties.postId,
+                    replies: replies.filter((r) => r.properties.commentId === c.id),
+                    user: users.find((u) => u.id === c.properties.userId),
+                },
+            });
         });
-    });
-    return fullComments;
-});
+        return fullComments;
+    }
+);
