@@ -9,7 +9,5 @@ import { FullComment } from '../models/comment.model';
 export class CommentListComponent {
     @Input() comments: FullComment[] | undefined;
 
-    constructor() {
-        this.comments = [];
-    }
+    constructor() {}
 }
