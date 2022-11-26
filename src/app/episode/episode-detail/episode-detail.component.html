@@ -1,22 +1,12 @@
-<div class="container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="30px">
-    <div class="header" fxLayout="column" fxLayoutAlign="start center">
-        <h1 style="text-align: center">{{ episode.properties?.title }} ({{ episode.properties?.year }})</h1>
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
-            <div>{{ episode.properties?.author }}</div>
-            <div>{{ episode.properties?.date | date }}</div>
-        </div>
+<div class="container episode">
+    <h1>{{ episode.properties?.title }} ({{ episode.properties?.year }})</h1>
+    <div class="header">
+        <div>{{ episode.properties?.author }}</div>
+        <div>{{ episode.properties?.date | date }}</div>
     </div>
+    <img class="poster" src="{{ episode.properties?.poster }}" alt="Poster for {{ episode.properties?.title }}" />
 
-    <div class="poster" fxLayout="row" fxLayoutAlign="center">
-        <img
-            fxFlex.xs="100"
-            fxFlex.gt-xs="580px"
-            src="{{ episode.properties?.poster }}"
-            alt="Poster for {{ episode.properties?.title }}"
-        />
-    </div>
-
-    <div class="links" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+    <div class="links">
         <a
             mat-icon-button
             *ngIf="!!episode.properties?.links?.applePodcasts"

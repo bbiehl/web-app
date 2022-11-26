@@ -1,27 +1,52 @@
-h1 {
-    font-size: 28px;
-}
+.episode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-// .poster {
-//     width: 100%;
-// }
+    h1 {
+        font-size: 28px;
+        margin-top: 30px;
+        text-align: center;
+    }
 
-.header {
-    margin-top: 30px;
-    width: 100%;
-}
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
 
-.content {
-    // width: 100%;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    font-size: 18px;
-}
+    @media (max-width: 599px) {
+        .poster {
+            max-width: 100%;
+        }
+    }
+    @media (min-width: 600px) {
+        .poster {
+            max-width: 580px;
+        }
+    }
 
-.links {
-    // width: 100%;
-    .mat-icon {
-        height: 34px;
-        width: 34px;
+    .content {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        margin: 20px 0;
+        .mat-icon {
+            height: 34px;
+            width: 34px;
+        }
     }
 }
