@@ -54,6 +54,12 @@
         </a>
     </div>
     <div class="content" [innerText]="episode.properties?.description"></div>
+    <span class="guidelines"
+        >Before leaving a comment, please <a>review our guidelines for commenting on Analog Jones</a>. It is imperative
+        that all our commenters follow these guidelines in order to prevent Brad from taking this feature away!</span
+    >
+    <app-comment-add [postId]="episode.id"></app-comment-add>
+
     <app-comment-list [comments]="episode.properties?.comments"></app-comment-list>
     <app-episode-overview></app-episode-overview>
 </div>

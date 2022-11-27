@@ -1,1 +1,13 @@
-<p>comment-add works!</p>
+<div class="comment-add">
+    <mat-form-field appearance="fill">
+        <textarea matInput placeholder="Leave a comment" [formControl]="commentFormControl" rows="5"></textarea>
+    </mat-form-field>
+    <button
+        mat-flat-button
+        color="primary"
+        (click)="addComment(commentFormControl.value)"
+        [disabled]="commentFormControl.value.length < 1"
+    >
+        JOIN THE CONVERSATION
+    </button>
+</div>

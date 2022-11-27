@@ -10,7 +10,7 @@
                 {{ comment.properties.date | date: "fullDate" }}
                 {{ comment.properties.date | date: "shortTime" }}
             </div>
-            <div>{{ comment.properties.body }}</div>
+            <div [innerHTML]="comment.properties.body"></div>
             <div class="cr-actions">
                 <button mat-icon-button matTooltip="Leave a reply" matTooltipPosition="above">
                     <mat-icon>reply</mat-icon>Reply

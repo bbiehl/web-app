@@ -8,7 +8,6 @@ export interface Comment {
         collection: string;
         date: Date;
         postId: string;
-        // replyIds: string[];
         userId: string;
     };
 }

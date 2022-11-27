@@ -15,7 +15,7 @@
                 <b>{{ r.properties.replyToUser?.properties?.userName }}</b>
             </div>
         </div>
-        <div>{{ r.properties.body }}</div>
+        <div [innerHTML]="r.properties.body"></div>
         <div class="cr-actions">
             <button mat-icon-button matTooltip="Leave a reply" matTooltipPosition="above">
                 <mat-icon>reply</mat-icon>Reply
