@@ -23,6 +23,7 @@ export interface FullComment {
         editedDate: Date | null;
         isFlagged: boolean;
         isInEditMode: boolean;
+        isInFlagMode: boolean;
         postId: string;
         replies: ReplyFull[];
         user?: User;

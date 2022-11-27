@@ -30,6 +30,7 @@ export const selectFullComments = createSelector(
                     editedDate: c.properties.editedDate,
                     isFlagged: c.properties.isFlagged,
                     isInEditMode: state.selectedCommentId === c.id && state.editMode,
+                    isInFlagMode: state.selectedCommentId === c.id && state.flagMode,
                     postId: c.properties.postId,
                     replies: replies.filter((r) => r.properties.commentId === c.id),
                     user: users.find((u) => u.id === c.properties.userId),
@@ -39,3 +40,7 @@ export const selectFullComments = createSelector(
         return fullComments;
     }
 );
+
+export const selectCurrentComment = createSelector(selectCommentState, selectAllComments, (state, comments) => {
+    return comments.find((c) => c.id === state.selectedCommentId);
+});

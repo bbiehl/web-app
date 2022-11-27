@@ -17,13 +17,22 @@
             </div>
             <div *ngIf="!comment.properties.isInEditMode" [innerHTML]="comment.properties.body"></div>
             <app-comment-edit *ngIf="comment.properties.isInEditMode" [comment]="comment"></app-comment-edit>
-            <div class="cr-actions">
+            <div *ngIf="comment.properties.isInFlagMode" class="cr-flag-mode">
+                <b> Confirm Flag as Inappropriate:</b>
+                <button mat-icon-button color="accent" (click)="commentService.flagComment()">
+                    <mat-icon>check</mat-icon>
+                </button>
+                <button mat-icon-button color="accent" (click)="closeFlagComment()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+            <div *ngIf="!comment.properties.isInFlagMode && !comment.properties.isInEditMode" class="cr-actions">
                 <button mat-icon-button matTooltip="Leave a reply"><mat-icon>reply</mat-icon>Reply</button>
                 <button
                     *ngIf="!comment.properties.isFlagged"
                     mat-icon-button
                     matTooltip="Flag as innapropriate"
-                    (click)="flagComment(comment)"
+                    (click)="openFlagComment(comment)"
                 >
                     <mat-icon>flag</mat-icon>
                 </button>

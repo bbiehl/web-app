@@ -2,12 +2,13 @@ import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 import { loadEpisodesRequest } from 'src/app/episode/store/episode.actions';
 import { Comment } from '../models/comment.model';
-import { editCommentOff, editCommentOn, loadCommentsFailure, loadCommentsSuccess } from './comment.actions';
+import * as CommentActions from './comment.actions';
 
 export const CommentFeatureKey = 'comments';
 
 export interface CommentState extends EntityState<Comment> {
     editMode: boolean;
+    flagMode: boolean;
     error: any;
     loading: boolean;
     selectedCommentId: string | null;
@@ -17,6 +18,7 @@ export const commentAdapter: EntityAdapter<Comment> = createEntityAdapter<Commen
 
 export const initialCommentState: CommentState = commentAdapter.getInitialState({
     editMode: false,
+    flagMode: false,
     error: null,
     loading: false,
     selectedCommentId: null,
@@ -32,7 +34,7 @@ export const commentReducer = createReducer<CommentState>(
             loading: true,
         })
     ),
-    on(loadCommentsSuccess, (state: CommentState, { comments }) =>
+    on(CommentActions.loadCommentsSuccess, (state: CommentState, { comments }) =>
         commentAdapter.addMany(comments, {
             ...state,
             error: null,
@@ -40,17 +42,23 @@ export const commentReducer = createReducer<CommentState>(
         })
     ),
     on(
-        loadCommentsFailure,
+        CommentActions.loadCommentsFailure,
         (state): CommentState => ({
             ...state,
             error: 'Comments failed to load.',
             loading: false,
         })
     ),
-    on(editCommentOn, (state: CommentState, { id }): CommentState => {
-        return { ...state, editMode: true, selectedCommentId: id };
+    on(CommentActions.editCommentOn, (state, { id }): CommentState => {
+        return { ...state, editMode: true, flagMode: false, selectedCommentId: id };
     }),
-    on(editCommentOff, (state: CommentState): CommentState => {
-        return { ...state, editMode: false, selectedCommentId: null };
+    on(CommentActions.editCommentOff, (state): CommentState => {
+        return { ...state, editMode: false, flagMode: false, selectedCommentId: null };
+    }),
+    on(CommentActions.flagCommentOn, (state, { id }): CommentState => {
+        return { ...state, flagMode: true, editMode: false, selectedCommentId: id };
+    }),
+    on(CommentActions.flagCommentOff, (state): CommentState => {
+        return { ...state, flagMode: false, editMode: false, selectedCommentId: null };
     })
 );

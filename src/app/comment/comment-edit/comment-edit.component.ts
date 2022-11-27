@@ -22,8 +22,8 @@ export class CommentEditComponent implements OnInit {
         this.commentFormControl.patchValue(this.comment.properties.body);
     }
 
-    public clear(): void {
-        this.commentFormControl.setValue('');
+    public quit(): void {
+        this.store.dispatch(editCommentOff());
     }
 
     public undo(): void {
@@ -31,7 +31,7 @@ export class CommentEditComponent implements OnInit {
     }
 
     public save(): void {
-        this.commentService.editComment(this.comment, this.commentFormControl.value);
+        this.commentService.editComment(this.commentFormControl.value);
         this.store.dispatch(editCommentOff());
     }
 }
