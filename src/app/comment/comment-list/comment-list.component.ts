@@ -10,4 +10,8 @@ export class CommentListComponent {
     @Input() comments: FullComment[] | undefined;
 
     constructor() {}
+
+    public openCommentEdit(comment: FullComment): void {
+
+    }
 }

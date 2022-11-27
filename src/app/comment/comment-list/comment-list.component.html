@@ -1,7 +1,7 @@
 <div class="cr-container">
     <h3>COMMENTS</h3>
     <div *ngFor="let comment of comments">
-        <div class="cr-item">
+        <div class="cr-item" [ngClass]="comment.properties.isFlagged ? 'flagged' : ''">
             <div class="cr-user">
                 <a href=".">{{ comment.properties.user?.properties?.userName }}</a>
                 <div class="cr-staff" *ngIf="comment.properties.user?.properties?.isAdmin">STAFF</div>
@@ -15,8 +15,24 @@
                 <button mat-icon-button matTooltip="Leave a reply" matTooltipPosition="above">
                     <mat-icon>reply</mat-icon>Reply
                 </button>
-                <button mat-icon-button matTooltip="Flag as innapropriate" matTooltipPosition="above">
+                <button
+                    *ngIf="!comment.properties.isFlagged"
+                    mat-icon-button
+                    matTooltip="Flag as innapropriate"
+                    matTooltipPosition="above"
+                >
                     <mat-icon>flag</mat-icon>
+                </button>
+                <button
+                    mat-icon-button
+                    matTooltip="Edit Comment"
+                    matTooltipPosition="above"
+                    (click)="openCommentEdit(comment)"
+                >
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Delete Comment" matTooltipPosition="above">
+                    <mat-icon>delete</mat-icon>
                 </button>
             </div>
             <app-reply-list [replies]="comment.properties.replies"></app-reply-list>

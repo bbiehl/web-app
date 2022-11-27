@@ -26,6 +26,7 @@ export const selectFullComments = createSelector(
                     body: c.properties.body,
                     collection: c.properties.collection,
                     date: c.properties.date,
+                    isFlagged: c.properties.isFlagged,
                     postId: c.properties.postId,
                     replies: replies.filter((r) => r.properties.commentId === c.id),
                     user: users.find((u) => u.id === c.properties.userId),
