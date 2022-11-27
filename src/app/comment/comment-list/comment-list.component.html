@@ -12,27 +12,19 @@
             </div>
             <div [innerHTML]="comment.properties.body"></div>
             <div class="cr-actions">
-                <button mat-icon-button matTooltip="Leave a reply" matTooltipPosition="above">
-                    <mat-icon>reply</mat-icon>Reply
-                </button>
+                <button mat-icon-button matTooltip="Leave a reply"><mat-icon>reply</mat-icon>Reply</button>
                 <button
                     *ngIf="!comment.properties.isFlagged"
                     mat-icon-button
                     matTooltip="Flag as innapropriate"
-                    matTooltipPosition="above"
                     (click)="flagComment(comment)"
                 >
                     <mat-icon>flag</mat-icon>
                 </button>
-                <button
-                    mat-icon-button
-                    matTooltip="Edit Comment"
-                    matTooltipPosition="above"
-                    (click)="openCommentEdit(comment)"
-                >
+                <button mat-icon-button matTooltip="Edit Comment" (click)="openCommentEdit(comment)">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-icon-button matTooltip="Delete Comment" matTooltipPosition="above">
+                <button mat-icon-button matTooltip="Delete Comment">
                     <mat-icon>delete</mat-icon>
                 </button>
             </div>

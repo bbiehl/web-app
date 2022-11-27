@@ -33,7 +33,6 @@ export class CommentAddComponent implements OnInit {
                 body: comment,
                 collection: Categories.EPISODES,
                 date: new Date(),
-                isFlagged: false,
                 postId: this.postId,
                 userId: this.userId,
             };

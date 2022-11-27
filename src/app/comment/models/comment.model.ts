@@ -7,7 +7,9 @@ export interface Comment {
         body: string;
         collection: string;
         date: Date;
+        editedDate?: Date;
         isFlagged: boolean;
+        isInEditMode: boolean;
         postId: string;
         userId: string;
     };
@@ -19,7 +21,9 @@ export interface FullComment {
         body: string;
         collection: string;
         date: Date;
+        editedDate?: Date;
         isFlagged: boolean;
+        isInEditMode: boolean;
         postId: string;
         replies: ReplyFull[];
         user?: User;

@@ -19,6 +19,8 @@ export class CommentService {
             id: 'blargh',
             properties: {
                 ...newCommentPayload,
+                isFlagged: false,
+                isInEditMode: false,
             },
         };
         console.log(payload);
@@ -32,10 +34,27 @@ export class CommentService {
                 collection: flaggedCommentPayload.properties.collection,
                 date: flaggedCommentPayload.properties.date,
                 isFlagged: true,
+                isInEditMode: flaggedCommentPayload.properties.isInEditMode,
                 postId: flaggedCommentPayload.properties.postId,
                 userId: flaggedCommentPayload.properties.user!.id,
             },
         };
         console.log(payload);
+    }
+
+    public editComment(editedCommentPayload: FullComment): void {
+        const payload: Comment = {
+            id: editedCommentPayload.id,
+            properties: {
+                body: editedCommentPayload.properties.body,
+                collection: editedCommentPayload.properties.collection,
+                date: editedCommentPayload.properties.date,
+                editedDate: new Date(),
+                isFlagged: editedCommentPayload.properties.isFlagged,
+                isInEditMode: false,
+                postId: editedCommentPayload.properties.postId,
+                userId: editedCommentPayload.properties.user!.id,
+            },
+        };
     }
 }
