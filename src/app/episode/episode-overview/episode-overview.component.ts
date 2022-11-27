@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
 import { selectFullEpisodes } from '../store/episode.selector';
@@ -13,7 +14,7 @@ import { EpisodeFull } from '../types/episode.model';
 export class EpisodeOverviewComponent implements OnInit {
     episodes: EpisodeFull[] = [];
 
-    constructor(private store: Store) {}
+    constructor(private router: Router, private store: Store) {}
 
     ngOnInit(): void {
         this.store
@@ -22,5 +23,9 @@ export class EpisodeOverviewComponent implements OnInit {
             .subscribe((e) => {
                 this.episodes = e.slice(0, 3);
             });
+    }
+
+    public handleClick(link: string | undefined): void {
+        this.router.navigate(['episodes', link]);
     }
 }

@@ -1,6 +1,6 @@
 <div class="episode-overview">
     <div *ngFor="let e of episodes">
-        <a routerLink="episodes/{{ e.id }}">
+        <a (click)="handleClick(e.id)" class="pointer">
             <mat-card class="card">
                 <mat-card-header>
                     <mat-card-title>{{ e.properties?.title }}</mat-card-title>
@@ -8,6 +8,5 @@
                 <img mat-card-image src="{{ e.properties?.poster }}" alt="Photo of {{ e.properties?.title }}" />
             </mat-card>
         </a>
-
     </div>
 </div>
