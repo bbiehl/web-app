@@ -14,10 +14,11 @@ export const selectCommentsError = createSelector(selectCommentState, (state) =>
 export const selectComment = createSelector(selectCommentEntities, selectRouteParams, (events, { id }) => events[id]);
 
 export const selectFullComments = createSelector(
+    selectCommentState,
     selectAllComments,
     selectAllUsers,
     selectFullReplies,
-    (comments, users, replies) => {
+    (state, comments, users, replies) => {
         const fullComments: FullComment[] = [];
         comments.forEach((c) => {
             fullComments.push({
@@ -28,7 +29,7 @@ export const selectFullComments = createSelector(
                     date: c.properties.date,
                     editedDate: c.properties.editedDate,
                     isFlagged: c.properties.isFlagged,
-                    isInEditMode: c.properties.isInEditMode,
+                    isInEditMode: state.selectedCommentId === c.id && state.editMode,
                     postId: c.properties.postId,
                     replies: replies.filter((r) => r.properties.commentId === c.id),
                     user: users.find((u) => u.id === c.properties.userId),

@@ -19,8 +19,8 @@ export class CommentService {
             id: 'blargh',
             properties: {
                 ...newCommentPayload,
+                editedDate: null,
                 isFlagged: false,
-                isInEditMode: false,
             },
         };
         console.log(payload);
@@ -33,8 +33,8 @@ export class CommentService {
                 body: flaggedCommentPayload.properties.body,
                 collection: flaggedCommentPayload.properties.collection,
                 date: flaggedCommentPayload.properties.date,
+                editedDate: flaggedCommentPayload.properties.editedDate,
                 isFlagged: true,
-                isInEditMode: flaggedCommentPayload.properties.isInEditMode,
                 postId: flaggedCommentPayload.properties.postId,
                 userId: flaggedCommentPayload.properties.user!.id,
             },
@@ -42,19 +42,19 @@ export class CommentService {
         console.log(payload);
     }
 
-    public editComment(editedCommentPayload: FullComment): void {
+    public editComment(comment: FullComment, update: string): void {
         const payload: Comment = {
-            id: editedCommentPayload.id,
+            id: comment.id,
             properties: {
-                body: editedCommentPayload.properties.body,
-                collection: editedCommentPayload.properties.collection,
-                date: editedCommentPayload.properties.date,
+                body: update,
+                collection: comment.properties.collection,
+                date: comment.properties.date,
                 editedDate: new Date(),
-                isFlagged: editedCommentPayload.properties.isFlagged,
-                isInEditMode: false,
-                postId: editedCommentPayload.properties.postId,
-                userId: editedCommentPayload.properties.user!.id,
+                isFlagged: comment.properties.isFlagged,
+                postId: comment.properties.postId,
+                userId: comment.properties.user!.id,
             },
         };
+        console.log(payload);
     }
 }

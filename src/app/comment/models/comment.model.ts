@@ -7,9 +7,8 @@ export interface Comment {
         body: string;
         collection: string;
         date: Date;
-        editedDate?: Date;
+        editedDate: Date | null;
         isFlagged: boolean;
-        isInEditMode: boolean;
         postId: string;
         userId: string;
     };
@@ -21,7 +20,7 @@ export interface FullComment {
         body: string;
         collection: string;
         date: Date;
-        editedDate?: Date;
+        editedDate: Date | null;
         isFlagged: boolean;
         isInEditMode: boolean;
         postId: string;

@@ -6,11 +6,17 @@
                 <a href=".">{{ comment.properties.user?.properties?.userName }}</a>
                 <div class="cr-staff" *ngIf="comment.properties.user?.properties?.isAdmin">STAFF</div>
             </div>
-            <div class="cr-date">
+            <div *ngIf="!comment.properties.editedDate" class="cr-date">
                 {{ comment.properties.date | date: "fullDate" }}
                 {{ comment.properties.date | date: "shortTime" }}
             </div>
-            <div [innerHTML]="comment.properties.body"></div>
+            <div *ngIf="!!comment.properties.editedDate" class="cr-date">
+                (edited)
+                {{ comment.properties.editedDate | date: "fullDate" }}
+                {{ comment.properties.editedDate | date: "shortTime" }}
+            </div>
+            <div *ngIf="!comment.properties.isInEditMode" [innerHTML]="comment.properties.body"></div>
+            <app-comment-edit *ngIf="comment.properties.isInEditMode" [comment]="comment"></app-comment-edit>
             <div class="cr-actions">
                 <button mat-icon-button matTooltip="Leave a reply"><mat-icon>reply</mat-icon>Reply</button>
                 <button
@@ -21,8 +27,21 @@
                 >
                     <mat-icon>flag</mat-icon>
                 </button>
-                <button mat-icon-button matTooltip="Edit Comment" (click)="openCommentEdit(comment)">
+                <button
+                    *ngIf="!comment.properties.isInEditMode"
+                    mat-icon-button
+                    matTooltip="Edit Comment"
+                    (click)="openCommentEdit(comment)"
+                >
                     <mat-icon>edit</mat-icon>
+                </button>
+                <button
+                    *ngIf="comment.properties.isInEditMode"
+                    mat-icon-button
+                    matTooltip="Discard Edit"
+                    (click)="closeCommentEdit()"
+                >
+                    <mat-icon>close</mat-icon>
                 </button>
                 <button mat-icon-button matTooltip="Delete Comment">
                     <mat-icon>delete</mat-icon>
