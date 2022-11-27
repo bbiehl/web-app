@@ -1,1 +1,13 @@
-<p>episode-overview works!</p>
+<div class="episode-overview">
+    <div *ngFor="let e of episodes">
+        <a routerLink="episodes/{{ e.id }}">
+            <mat-card class="card">
+                <mat-card-header>
+                    <mat-card-title>{{ e.properties?.title }}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="{{ e.properties?.poster }}" alt="Photo of {{ e.properties?.title }}" />
+            </mat-card>
+        </a>
+
+    </div>
+</div>
