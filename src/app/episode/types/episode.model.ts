@@ -8,11 +8,11 @@ export interface Episode {
         description: string;
         poster: string;
         links: {
-            applePodcasts: string;
-            iHeartRadio: string;
-            iTunes: string;
-            podBean: string;
-            youTube: string;
+            applePodcasts?: string;
+            iHeartRadio?: string;
+            iTunes?: string;
+            podBean?: string;
+            youTube?: string;
         };
         slug: string;
         title: string;

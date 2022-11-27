@@ -8,45 +8,49 @@
 
     <div class="links">
         <a
-            mat-icon-button
             *ngIf="!!episode.properties?.links?.applePodcasts"
             href="{{ episode.properties?.links?.applePodcasts }}"
             target="_blank"
             matTooltip="Find on Apple Podcasts"
-            matTooltipPosition="below"
+            matTooltipPosition="above"
         >
-            <mat-icon svgIcon="applePodcasts" aria-hidden="false" aria-label="Apple Podcasts SVG icon"></mat-icon>
+            Apple Podcasts
         </a>
         <a
-            mat-icon-button
             *ngIf="!!episode.properties?.links?.iHeartRadio"
             href="{{ episode.properties?.links?.iHeartRadio }}"
             target="_blank"
             matTooltip="Find on iHeartRadio"
-            matTooltipPosition="below"
+            matTooltipPosition="above"
         >
-            <mat-icon svgIcon="iHeartRadio" aria-hidden="false" aria-label="iHeartRadio SVG icon"></mat-icon>
+            iHeartRadio
         </a>
         <a
-            mat-icon-button
             *ngIf="!!episode.properties?.links?.iTunes"
             href="{{ episode.properties?.links?.iTunes }}"
             target="_blank"
             matTooltip="Find on iTunes"
-            matTooltipPosition="below"
+            matTooltipPosition="above"
         >
-            <mat-icon svgIcon="iTunes" aria-hidden="false" aria-label="iTunes SVG icon"></mat-icon>
+            iTunes
         </a>
         <a
-            mat-icon-button
-            *ngIf="episode.properties?.links?.podBean"
+            *ngIf="!!episode.properties?.links?.podBean"
             href="{{ episode.properties?.links?.podBean }}"
             target="_blank"
+            matTooltip="Find on PodBean"
+            matTooltipPosition="above"
         >
-            podBean
+            PodBean
         </a>
-        <a *ngIf="episode.properties?.links?.youTube" href="{{ episode.properties?.links?.youTube }}" target="_blank">
-            youTube
+        <a
+            *ngIf="!!episode.properties?.links?.youTube"
+            href="{{ episode.properties?.links?.youTube }}"
+            target="_blank"
+            matTooltip="Find on YouTube"
+            matTooltipPosition="above"
+        >
+            YouTube
         </a>
     </div>
     <div class="content" [innerText]="episode.properties?.description"></div>
