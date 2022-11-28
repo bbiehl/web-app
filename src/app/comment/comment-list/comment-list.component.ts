@@ -14,19 +14,19 @@ export class CommentListComponent {
 
     constructor(public commentService: CommentService, private store: Store) {}
 
-    public openFlagComment(comment: FullComment): void {
-        this.store.dispatch(CommentActions.flagCommentOn({ id: comment.id }));
+    public openDeleteMode(comment: FullComment): void {
+        this.store.dispatch(CommentActions.deleteCommentMode({ id: comment.id }));
     }
 
-    public closeFlagComment(): void {
-        this.store.dispatch(CommentActions.flagCommentOff());
+    public openEditMode(comment: FullComment): void {
+        this.store.dispatch(CommentActions.editCommentMode({ id: comment.id }));
     }
 
-    public openCommentEdit(comment: FullComment): void {
-        this.store.dispatch(CommentActions.editCommentOn({ id: comment.id }));
+    public openFlagMode(comment: FullComment): void {
+        this.store.dispatch(CommentActions.flagCommentMode({ id: comment.id }));
     }
 
-    public closeCommentEdit(): void {
-        this.store.dispatch(CommentActions.editCommentOff());
+    public closeModes(): void {
+        this.store.dispatch(CommentActions.turnOffModes());
     }
 }

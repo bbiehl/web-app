@@ -17,42 +17,45 @@
             </div>
             <div *ngIf="!comment.properties.isInEditMode" [innerHTML]="comment.properties.body"></div>
             <app-comment-edit *ngIf="comment.properties.isInEditMode" [comment]="comment"></app-comment-edit>
-            <div *ngIf="comment.properties.isInFlagMode" class="cr-flag-mode">
+            <div *ngIf="comment.properties.isInFlagMode">
                 <b> Confirm Flag as Inappropriate:</b>
                 <button mat-icon-button color="accent" (click)="commentService.flagComment()">
                     <mat-icon>check</mat-icon>
                 </button>
-                <button mat-icon-button color="accent" (click)="closeFlagComment()">
+                <button mat-icon-button color="accent" (click)="closeModes()">
                     <mat-icon>close</mat-icon>
                 </button>
             </div>
-            <div *ngIf="!comment.properties.isInFlagMode && !comment.properties.isInEditMode" class="cr-actions">
+            <div *ngIf="comment.properties.isInDeleteMode">
+                <b> Confirm Delete:</b>
+                <button mat-icon-button color="accent" (click)="commentService.deleteComment()">
+                    <mat-icon>check</mat-icon>
+                </button>
+                <button mat-icon-button color="accent" (click)="closeModes()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+            <div
+                *ngIf="
+                    !comment.properties.isInFlagMode &&
+                    !comment.properties.isInEditMode &&
+                    !comment.properties.isInDeleteMode
+                "
+                class="cr-actions"
+            >
                 <button mat-icon-button matTooltip="Leave a reply"><mat-icon>reply</mat-icon>Reply</button>
                 <button
                     *ngIf="!comment.properties.isFlagged"
                     mat-icon-button
                     matTooltip="Flag as innapropriate"
-                    (click)="openFlagComment(comment)"
+                    (click)="openFlagMode(comment)"
                 >
                     <mat-icon>flag</mat-icon>
                 </button>
-                <button
-                    *ngIf="!comment.properties.isInEditMode"
-                    mat-icon-button
-                    matTooltip="Edit Comment"
-                    (click)="openCommentEdit(comment)"
-                >
+                <button mat-icon-button matTooltip="Edit Comment" (click)="openEditMode(comment)">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button
-                    *ngIf="comment.properties.isInEditMode"
-                    mat-icon-button
-                    matTooltip="Discard Edit"
-                    (click)="closeCommentEdit()"
-                >
-                    <mat-icon>close</mat-icon>
-                </button>
-                <button mat-icon-button matTooltip="Delete Comment">
+                <button mat-icon-button matTooltip="Delete Comment" (click)="openDeleteMode(comment)">
                     <mat-icon>delete</mat-icon>
                 </button>
             </div>

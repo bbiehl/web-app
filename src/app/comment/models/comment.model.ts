@@ -22,6 +22,7 @@ export interface FullComment {
         date: Date;
         editedDate: Date | null;
         isFlagged: boolean;
+        isInDeleteMode: boolean;
         isInEditMode: boolean;
         isInFlagMode: boolean;
         postId: string;

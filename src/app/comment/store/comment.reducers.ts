@@ -7,6 +7,7 @@ import * as CommentActions from './comment.actions';
 export const CommentFeatureKey = 'comments';
 
 export interface CommentState extends EntityState<Comment> {
+    deleteMode: boolean;
     editMode: boolean;
     flagMode: boolean;
     error: any;
@@ -17,6 +18,7 @@ export interface CommentState extends EntityState<Comment> {
 export const commentAdapter: EntityAdapter<Comment> = createEntityAdapter<Comment>({});
 
 export const initialCommentState: CommentState = commentAdapter.getInitialState({
+    deleteMode: false,
     editMode: false,
     flagMode: false,
     error: null,
@@ -49,16 +51,16 @@ export const commentReducer = createReducer<CommentState>(
             loading: false,
         })
     ),
-    on(CommentActions.editCommentOn, (state, { id }): CommentState => {
-        return { ...state, editMode: true, flagMode: false, selectedCommentId: id };
+    on(CommentActions.deleteCommentMode, (state, { id }): CommentState => {
+        return { ...state, deleteMode: true, editMode: false, flagMode: false, selectedCommentId: id };
     }),
-    on(CommentActions.editCommentOff, (state): CommentState => {
-        return { ...state, editMode: false, flagMode: false, selectedCommentId: null };
+    on(CommentActions.editCommentMode, (state, { id }): CommentState => {
+        return { ...state, deleteMode: false, editMode: true, flagMode: false, selectedCommentId: id };
     }),
-    on(CommentActions.flagCommentOn, (state, { id }): CommentState => {
-        return { ...state, flagMode: true, editMode: false, selectedCommentId: id };
+    on(CommentActions.flagCommentMode, (state, { id }): CommentState => {
+        return { ...state, deleteMode: false, editMode: false, flagMode: true, selectedCommentId: id };
     }),
-    on(CommentActions.flagCommentOff, (state): CommentState => {
-        return { ...state, flagMode: false, editMode: false, selectedCommentId: null };
+    on(CommentActions.turnOffModes, (state): CommentState => {
+        return { ...state, editMode: false, flagMode: false, deleteMode: false, selectedCommentId: null };
     })
 );

@@ -55,7 +55,7 @@ export class CommentService {
                 },
             };
             console.log(payload);
-            this.store.dispatch(CommentActions.flagCommentOff());
+            this.store.dispatch(CommentActions.turnOffModes());
         }
     }
 
@@ -74,6 +74,12 @@ export class CommentService {
                 },
             };
             console.log(payload);
+        }
+    }
+
+    public deleteComment(): void {
+        if (!!this.selectedComment) {
+            console.log(`Delete: ${this.selectedComment.id}`);
         }
     }
 }

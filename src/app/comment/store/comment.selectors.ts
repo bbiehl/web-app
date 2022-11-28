@@ -29,6 +29,7 @@ export const selectFullComments = createSelector(
                     date: c.properties.date,
                     editedDate: c.properties.editedDate,
                     isFlagged: c.properties.isFlagged,
+                    isInDeleteMode: state.selectedCommentId === c.id && state.deleteMode,
                     isInEditMode: state.selectedCommentId === c.id && state.editMode,
                     isInFlagMode: state.selectedCommentId === c.id && state.flagMode,
                     postId: c.properties.postId,
