@@ -19,19 +19,19 @@
             <app-comment-edit *ngIf="comment.properties.isInEditMode" [comment]="comment"></app-comment-edit>
             <div *ngIf="comment.properties.isInFlagMode">
                 <b> Confirm Flag as Inappropriate:</b>
-                <button mat-icon-button color="accent" (click)="commentService.flagComment()">
+                <button mat-icon-button color="warn" (click)="commentService.flagComment()">
                     <mat-icon>check</mat-icon>
                 </button>
-                <button mat-icon-button color="accent" (click)="closeModes()">
+                <button mat-icon-button color="warn" (click)="closeModes()">
                     <mat-icon>close</mat-icon>
                 </button>
             </div>
             <div *ngIf="comment.properties.isInDeleteMode">
                 <b> Confirm Delete:</b>
-                <button mat-icon-button color="accent" (click)="commentService.deleteComment()">
+                <button mat-icon-button color="warn" (click)="commentService.deleteComment()">
                     <mat-icon>check</mat-icon>
                 </button>
-                <button mat-icon-button color="accent" (click)="closeModes()">
+                <button mat-icon-button color="warn" (click)="closeModes()">
                     <mat-icon>close</mat-icon>
                 </button>
             </div>

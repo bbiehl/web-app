@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { selectAllUsers } from 'src/app/user/store/user.selectors';
-import { ReplyObject } from '../models/reply.model';
+import { ReplyEntity, ReplyObject } from '../models/reply.model';
 import { replyAdapter, ReplyFeatureKey, ReplyState } from './reply.reducers';
 
 export const selectReplyState = createFeatureSelector<ReplyState>(ReplyFeatureKey);
@@ -28,5 +28,13 @@ export const selectReplyObjects = createSelector(
             });
         });
         return replyObjects;
+    }
+);
+
+export const selectCurrentReply = createSelector(
+    selectReplyState,
+    selectAllReplies,
+    (state, replies): ReplyEntity | undefined => {
+        return replies.find((r) => r.id === state.selectedReplyId);
     }
 );

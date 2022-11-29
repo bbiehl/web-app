@@ -2,7 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { selectReplyObjects } from 'src/app/reply/store/reply.selectors';
 import { selectRouteParams } from 'src/app/router.selectors';
 import { selectAllUsers } from 'src/app/user/store/user.selectors';
-import { FullComment } from '../models/comment.model';
+import { Comment, FullComment } from '../models/comment.model';
 import { commentAdapter, CommentFeatureKey, CommentState } from './comment.reducers';
 
 export const selectCommentState = createFeatureSelector<CommentState>(CommentFeatureKey);
@@ -42,6 +42,10 @@ export const selectFullComments = createSelector(
     }
 );
 
-export const selectCurrentComment = createSelector(selectCommentState, selectAllComments, (state, comments) => {
-    return comments.find((c) => c.id === state.selectedCommentId);
-});
+export const selectCurrentComment = createSelector(
+    selectCommentState,
+    selectAllComments,
+    (state, comments): Comment | undefined => {
+        return comments.find((c) => c.id === state.selectedCommentId);
+    }
+);

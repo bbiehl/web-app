@@ -1,12 +1,16 @@
 <div *ngFor="let r of replies">
-    <div class="cr-item reply">
+    <div class="cr-item reply" [ngClass]="r.isFlagged ? 'flagged' : ''">
         <div class="cr-user">
             <a href=".">{{ r.user?.properties?.userName }}</a>
             <div class="cr-staff" *ngIf="r.user?.properties?.isAdmin">STAFF</div>
         </div>
-        <div class="cr-date">
+        <div *ngIf="!r.editedDate" class="cr-date">
             {{ r.date | date: "fullDate" }}
             {{ r.date | date: "shortTime" }}
+        </div>
+        <div *ngIf="!!r.editedDate" class="cr-date">(edited)
+            {{ r.editedDate | date: "fullDate" }}
+            {{ r.editedDate| date: "shortTime" }}
         </div>
         <div class="cr-in-reply">
             <mat-icon class="reply-icon">reply</mat-icon>
