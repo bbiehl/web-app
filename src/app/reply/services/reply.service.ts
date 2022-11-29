@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { mockReplies } from '../mocks/reply.mocks';
-import { Reply } from '../models/reply.model';
+import { ReplyEntity } from '../models/reply.model';
 
 @Injectable({
     providedIn: 'root',
@@ -9,7 +9,7 @@ import { Reply } from '../models/reply.model';
 export class ReplyService {
     constructor() {}
 
-    public getReplies(): Observable<Reply[]> {
+    public getReplies(): Observable<ReplyEntity[]> {
         return of(mockReplies);
     }
 }

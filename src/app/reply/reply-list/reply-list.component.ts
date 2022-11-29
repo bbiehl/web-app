@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ReplyFull } from '../models/reply.model';
+import { ReplyObject } from '../models/reply.model';
 
 @Component({
     selector: 'app-reply-list',
@@ -7,7 +7,7 @@ import { ReplyFull } from '../models/reply.model';
     styleUrls: ['./reply-list.component.scss'],
 })
 export class ReplyListComponent {
-    @Input() replies: ReplyFull[] | undefined;
+    @Input() replies: ReplyObject[] | undefined;
 
     constructor() {}
 }

@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { selectFullReplies } from 'src/app/reply/store/reply.selectors';
+import { selectReplyObjects } from 'src/app/reply/store/reply.selectors';
 import { selectRouteParams } from 'src/app/router.selectors';
 import { selectAllUsers } from 'src/app/user/store/user.selectors';
 import { FullComment } from '../models/comment.model';
@@ -17,7 +17,7 @@ export const selectFullComments = createSelector(
     selectCommentState,
     selectAllComments,
     selectAllUsers,
-    selectFullReplies,
+    selectReplyObjects,
     (state, comments, users, replies) => {
         const fullComments: FullComment[] = [];
         comments.forEach((c) => {
@@ -33,7 +33,7 @@ export const selectFullComments = createSelector(
                     isInEditMode: state.selectedCommentId === c.id && state.editMode,
                     isInFlagMode: state.selectedCommentId === c.id && state.flagMode,
                     postId: c.properties.postId,
-                    replies: replies.filter((r) => r.properties.commentId === c.id),
+                    replies: replies.filter((r) => r.commentId === c.id),
                     user: users.find((u) => u.id === c.properties.userId),
                 },
             });

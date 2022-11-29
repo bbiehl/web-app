@@ -1,4 +1,4 @@
-import { ReplyFull } from 'src/app/reply/models/reply.model';
+import { ReplyObject } from 'src/app/reply/models/reply.model';
 import { User } from 'src/app/user/models/user.model';
 
 export interface Comment {
@@ -26,7 +26,7 @@ export interface FullComment {
         isInEditMode: boolean;
         isInFlagMode: boolean;
         postId: string;
-        replies: ReplyFull[];
+        replies: ReplyObject[];
         user?: User;
     };
 }
