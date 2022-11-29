@@ -15,16 +15,19 @@ export const selectReplyObjects = createSelector(
         const replyObjects: ReplyObject[] = [];
         replies.forEach((r) => {
             replyObjects.push({
-                body: r.properties.body,
-                commentId: r.properties.commentId,
-                date: r.properties.date,
-                editedDate: r.properties.editedDate,
-                isDeleteMode: state.deleteMode && state.selectedReplyId === r.id,
-                isEditMode: state.editMode && state.selectedReplyId === r.id,
-                isFlagMode: state.flagMode && state.selectedReplyId === r.id,
-                isFlagged: r.properties.isFlagged,
-                replyToUser: users.find((u) => u.id === r.properties.replyToUserId),
-                user: users.find((u) => u.id === r.properties.userId),
+                id: r.id,
+                properties: {
+                    body: r.properties.body,
+                    commentId: r.properties.commentId,
+                    date: r.properties.date,
+                    editedDate: r.properties.editedDate,
+                    isDeleteMode: state.deleteMode && state.selectedReplyId === r.id,
+                    isEditMode: state.editMode && state.selectedReplyId === r.id,
+                    isFlagMode: state.flagMode && state.selectedReplyId === r.id,
+                    isFlagged: r.properties.isFlagged,
+                    replyToUser: users.find((u) => u.id === r.properties.replyToUserId),
+                    user: users.find((u) => u.id === r.properties.userId),
+                },
             });
         });
         return replyObjects;

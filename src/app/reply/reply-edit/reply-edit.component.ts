@@ -19,7 +19,7 @@ export class ReplyEditComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.formControl.setValue(this.reply.body);
+        this.formControl.setValue(this.reply.properties.body);
     }
 
     public close(): void {
@@ -27,7 +27,7 @@ export class ReplyEditComponent implements OnInit {
     }
 
     public reset(): void {
-        this.formControl.setValue(this.reply.body);
+        this.formControl.setValue(this.reply.properties.body);
     }
 
     public save(): void {

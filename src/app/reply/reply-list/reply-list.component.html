@@ -1,25 +1,25 @@
 <div *ngFor="let r of replies">
-    <div class="cr-item reply" [ngClass]="r.isFlagged ? 'flagged' : ''">
+    <div class="cr-item reply" [ngClass]="r.properties.isFlagged ? 'flagged' : ''">
         <div class="cr-user">
-            <a href=".">{{ r.user?.properties?.userName }}</a>
-            <div class="cr-staff" *ngIf="r.user?.properties?.isAdmin">STAFF</div>
+            <a href=".">{{ r.properties.user?.properties?.userName }}</a>
+            <div class="cr-staff" *ngIf="r.properties.user?.properties?.isAdmin">STAFF</div>
         </div>
-        <div *ngIf="!r.editedDate" class="cr-date">
-            {{ r.date | date: "fullDate" }}
-            {{ r.date | date: "shortTime" }}
+        <div *ngIf="!r.properties.editedDate" class="cr-date">
+            {{ r.properties.date | date: "fullDate" }}
+            {{ r.properties.date | date: "shortTime" }}
         </div>
-        <div *ngIf="!!r.editedDate" class="cr-date">(edited)
-            {{ r.editedDate | date: "fullDate" }}
-            {{ r.editedDate| date: "shortTime" }}
+        <div *ngIf="!!r.properties.editedDate" class="cr-date">(edited)
+            {{ r.properties.editedDate | date: "fullDate" }}
+            {{ r.properties.editedDate| date: "shortTime" }}
         </div>
         <div class="cr-in-reply">
             <mat-icon class="reply-icon">reply</mat-icon>
             <div>In reply to</div>
             <div>
-                <b>{{ r.replyToUser?.properties?.userName }}</b>
+                <b>{{ r.properties.replyToUser?.properties?.userName }}</b>
             </div>
         </div>
-        <div [innerHTML]="r.body"></div>
+        <div [innerHTML]="r.properties.body"></div>
         <div class="cr-actions">
             <button mat-icon-button matTooltip="Leave a reply" matTooltipPosition="above">
                 <mat-icon>reply</mat-icon>Reply

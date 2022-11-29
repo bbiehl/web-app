@@ -33,7 +33,7 @@ export const selectFullComments = createSelector(
                     isInEditMode: state.selectedCommentId === c.id && state.editMode,
                     isInFlagMode: state.selectedCommentId === c.id && state.flagMode,
                     postId: c.properties.postId,
-                    replies: replies.filter((r) => r.commentId === c.id),
+                    replies: replies.filter((r) => r.properties.commentId === c.id),
                     user: users.find((u) => u.id === c.properties.userId),
                 },
             });

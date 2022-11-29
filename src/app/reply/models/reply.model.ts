@@ -14,14 +14,17 @@ export interface ReplyEntity {
 }
 
 export interface ReplyObject {
-    body: string;
-    commentId: string;
-    date: Date;
-    editedDate: Date | null;
-    isDeleteMode: boolean;
-    isEditMode: boolean;
-    isFlagMode: boolean;
-    isFlagged: boolean;
-    replyToUser?: User;
-    user?: User;
+    id: string;
+    properties: {
+        body: string;
+        commentId: string;
+        date: Date;
+        editedDate: Date | null;
+        isDeleteMode: boolean;
+        isEditMode: boolean;
+        isFlagMode: boolean;
+        isFlagged: boolean;
+        replyToUser?: User;
+        user?: User;
+    };
 }
