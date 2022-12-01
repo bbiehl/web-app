@@ -35,15 +35,19 @@
                     <mat-icon>close</mat-icon>
                 </button>
             </div>
+            <app-comment-reply *ngIf="comment.properties.isInReplyMode"></app-comment-reply>
             <div
                 *ngIf="
                     !comment.properties.isInFlagMode &&
                     !comment.properties.isInEditMode &&
-                    !comment.properties.isInDeleteMode
+                    !comment.properties.isInDeleteMode &&
+                    !comment.properties.isInReplyMode
                 "
                 class="cr-actions"
             >
-                <button mat-icon-button matTooltip="Leave a reply" (click)="openReplyMode(comment)"><mat-icon>reply</mat-icon>Reply</button>
+                <button mat-icon-button matTooltip="Leave a reply" (click)="openReplyMode(comment)">
+                    <mat-icon>reply</mat-icon>Reply
+                </button>
                 <button
                     *ngIf="!comment.properties.isFlagged"
                     mat-icon-button

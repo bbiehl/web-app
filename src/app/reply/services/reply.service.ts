@@ -35,7 +35,7 @@ export class ReplyService {
         return of(mockReplies);
     }
 
-    public addReply(reply: string, replyToUserId: string): void {
+    public addReplyToComment(reply: string): void {
         const payload: ReplyEntity = {
             id: 'blarg',
             properties: {
@@ -44,13 +44,14 @@ export class ReplyService {
                 date: new Date(),
                 editedDate: null,
                 isFlagged: false,
-                replyToUserId: replyToUserId,
+                replyToUserId: this.selectedComment!?.properties.userId,
                 userId: this.currentUser!?.id
             },
         };
+        console.log(payload);
     }
 
-    public editReply(reply: string): void {
+    public editReplyToComment(reply: string): void {
         console.log(reply);
     }
 }

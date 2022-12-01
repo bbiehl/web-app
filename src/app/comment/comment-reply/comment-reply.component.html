@@ -1,0 +1,17 @@
+<div class="comment-reply">
+    <mat-form-field appearance="fill">
+        <textarea matInput placeholder="Leave a reply" [formControl]="formControl" rows="5"></textarea>
+    </mat-form-field>
+    <div class="actions">
+        <button mat-icon-button color="accent" matTooltip="Quit" (click)="quit()">
+            <mat-icon>clear</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" matTooltip="Reset" (click)="reset()">
+            <mat-icon>undo</mat-icon>
+        </button>
+
+        <button mat-icon-button color="accent" matTooltip="Save Changes" (click)="save()">
+            <mat-icon>save</mat-icon>
+        </button>
+    </div>
+</div>

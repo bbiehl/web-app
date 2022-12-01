@@ -1,0 +1,9 @@
+.comment-reply {
+    display: flex;
+    flex-direction: column;
+
+    .actions {
+        flex-direction: row;
+        gap: 20px;
+    }
+}
