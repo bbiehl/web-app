@@ -43,7 +43,7 @@
                 "
                 class="cr-actions"
             >
-                <button mat-icon-button matTooltip="Leave a reply"><mat-icon>reply</mat-icon>Reply</button>
+                <button mat-icon-button matTooltip="Leave a reply" (click)="openReplyMode(comment)"><mat-icon>reply</mat-icon>Reply</button>
                 <button
                     *ngIf="!comment.properties.isFlagged"
                     mat-icon-button

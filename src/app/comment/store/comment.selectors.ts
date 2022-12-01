@@ -32,6 +32,7 @@ export const selectFullComments = createSelector(
                     isInDeleteMode: state.selectedCommentId === c.id && state.deleteMode,
                     isInEditMode: state.selectedCommentId === c.id && state.editMode,
                     isInFlagMode: state.selectedCommentId === c.id && state.flagMode,
+                    isInReplyMode: state.selectedCommentId === c.id && state.replyMode,
                     postId: c.properties.postId,
                     replies: replies.filter((r) => r.properties.commentId === c.id),
                     user: users.find((u) => u.id === c.properties.userId),

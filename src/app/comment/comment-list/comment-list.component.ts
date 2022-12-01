@@ -26,6 +26,10 @@ export class CommentListComponent {
         this.store.dispatch(CommentActions.flagCommentMode({ id: comment.id }));
     }
 
+    public openReplyMode(comment: FullComment): void {
+        this.store.dispatch(CommentActions.replyToCommentMode({ id: comment.id }));
+    }
+
     public closeModes(): void {
         this.store.dispatch(CommentActions.turnOffModes());
     }

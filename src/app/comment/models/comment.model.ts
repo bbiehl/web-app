@@ -25,6 +25,7 @@ export interface FullComment {
         isInDeleteMode: boolean;
         isInEditMode: boolean;
         isInFlagMode: boolean;
+        isInReplyMode: boolean;
         postId: string;
         replies: ReplyObject[];
         user?: User;
