@@ -5,7 +5,7 @@
 @media (max-width: 599px) {
     .episode-overview {
         display: flex;
-        flex-direction: column;
+        flex-direction: row wrap;
         gap: 20px;
 
         .card {
