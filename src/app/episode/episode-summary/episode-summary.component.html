@@ -4,7 +4,7 @@
     </div>
     <ng-template #episodesList>
         <div class="episode-container">
-            <mat-card *ngFor="let episode of episodes">
+            <mat-card appearance="outlined" *ngFor="let episode of episodes">
                 <a routerLink="{{ episode.id }}">
                     <img
                         mat-card-image

@@ -1,7 +1,7 @@
 <div class="episode-overview">
     <div *ngFor="let e of episodes">
         <a (click)="handleClick(e.id)" class="pointer">
-            <mat-card class="card">
+            <mat-card appearance="outlined" class="card">
                 <mat-card-header>
                     <mat-card-title>{{ e.properties?.title }}</mat-card-title>
                 </mat-card-header>
