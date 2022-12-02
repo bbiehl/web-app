@@ -28,7 +28,6 @@ export class EpisodeSummaryComponent implements OnInit {
             .pipe(untilDestroyed(this))
             .subscribe((episodes) => {
                 this.episodes = episodes;
-                console.log(this.episodes);
             });
     }
 

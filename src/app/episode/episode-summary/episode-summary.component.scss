@@ -1,25 +1,28 @@
-.mat-mdc-card {
-    max-width: 400px;
-}
-
-.episode-container {
-    display: flex;
-    margin-top: 20px;
-}
-
 @media (max-width: 599px) {
     .episode-container {
+        display: flex;
+        margin-top: 20px;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 20px;
+
+        .episode {
+            max-width: 400px
+        }
     }
 }
 @media (min-width: 600px) {
     .episode-container {
+        display: flex;
+        margin-top: 20px;
         flex-flow: row wrap;
         align-items: stretch;
         justify-content: space-evenly;
         gap: 20px;
+
+        .episode {
+            max-width: 400px;
+        }
     }
 }
